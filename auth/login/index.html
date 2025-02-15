@@ -111,17 +111,42 @@
     <main>
       <section>
         <div><img src="/Gavel.png" alt="" /></div>
-        <p>
+        <p class="font-paragraph">
           Log into your Bidly account to place listings and bid on quality items
         </p>
       </section>
       <section>
         <form name="login">
-          <fieldset>
-            <label for="Email">Email</label>
-            <input id="email" type="email" name="email" required />
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password" required />
+          <fieldset
+            class="container text-center rounded-lg flex flex-col mx-auto justify-between gap-5"
+          >
+            <label for="Email" class="font-paragraph text-lg">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              class="shadow-md"
+            />
+            <label for="password" class="font-paragraph text-lg"
+              >Password</label
+            >
+            <input
+              id="password"
+              type="password"
+              name="password"
+              required
+              class="shadow-md"
+            />
+            <button
+              class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg"
+            >
+              Login
+            </button>
+            <p>
+              Don't have an account?
+              <a href="/auth/register/">Register here!</a>
+            </p>
           </fieldset>
         </form>
       </section>

@@ -12,6 +12,7 @@ export default {
           banner: "#335C67",
           main: "#E09F3E",
           cta: "#9E2A2B",
+          mainhover: "#c98f37",
         },
       },
     },
