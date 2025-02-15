@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bidly</title>
     <link rel="stylesheet" href="src/css/style.css" />
+    <script type="module" src="src/js/global/utils/updateNav.js"></script>
   </head>
   <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header class="bg-brand-banner">
@@ -51,7 +52,22 @@
             </button>
           </div>
           <div class="flex md:hidden items-center">
-            <button id="hamburger-button" class="text-white"></button>
+            <button id="hamburger-button" class="text-white">
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 6h18M3 12h18M3 18h18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
           </div>
         </div>
         <div class="hidden" id="hamburger-menu">
