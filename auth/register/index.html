@@ -108,10 +108,10 @@
         </div>
       </nav>
     </header>
-    <main>
-      <section>
+    <main class="bg-slate-100">
+      <section class="m-4 flex w-3/5 mx-auto">
         <div><img src="/Gavel.png" alt="" /></div>
-        <p class="font-paragraph">
+        <p class="font-paragraph text-2xl">
           Register to Bidly so that you can place listings and bid on quality
           items
         </p>
@@ -119,43 +119,51 @@
       <section>
         <form name="register">
           <fieldset
-            class="container text-center rounded-lg flex flex-col mx-auto justify-between gap-5"
+            class="container rounded-lg flex flex-col mx-auto justify-between gap-4 w-2/4"
           >
-            <label for="username" class="font-paragraph text-lg"
-              >Username</label
-            >
-            <input
-              id="username"
-              type="text"
-              name="name"
-              required
-              maxlength="20"
-              class="shadow-md"
-            />
-            <label for="email" class="font-paragraph text-lg">Email</label>
-            <input
-              id="email"
-              type="email"
-              name="email"
-              required
-              class="shadow-md"
-            />
-            <label for="password" class="font-paragraph text-lg"
-              >Password</label
-            >
-            <input
-              id="password"
-              type="password"
-              name="password"
-              required
-              class="shadow-md"
-            />
-            <button
-              class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg"
-            >
-              Register
-            </button>
-            <p class="font-paragraph">
+            <div class="flex flex-col">
+              <label for="username" class="font-paragraph text-lg"
+                >Username</label
+              >
+              <input
+                id="username"
+                type="text"
+                name="name"
+                required
+                maxlength="20"
+                class="shadow-md"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="email" class="font-paragraph text-lg">Email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                required
+                class="shadow-md"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="password" class="font-paragraph text-lg"
+                >Password</label
+              >
+              <input
+                id="password"
+                type="password"
+                name="password"
+                required
+                class="shadow-md"
+              />
+            </div>
+            <div class="text-center">
+              <button
+                class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg w-2/4"
+              >
+                Register
+              </button>
+            </div>
+            <p class="font-paragraph text-center">
               Already have an account?
               <a href="/auth/login/">Login here!</a>
             </p>
