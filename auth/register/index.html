@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bidly</title>
-    <script type="module" src="/src/app.js" defer></script>
+    <script type="module" src="/src/main.js" defer></script>
   </head>
   <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header class="bg-brand-banner">
@@ -111,26 +111,54 @@
     <main>
       <section>
         <div><img src="/Gavel.png" alt="" /></div>
-        <p>
+        <p class="font-paragraph">
           Register to Bidly so that you can place listings and bid on quality
           items
         </p>
       </section>
       <section>
         <form name="register">
-          <fieldset>
-            <label for="username">Username</label>
+          <fieldset
+            class="container text-center rounded-lg flex flex-col mx-auto justify-between gap-5"
+          >
+            <label for="username" class="font-paragraph text-lg"
+              >Username</label
+            >
             <input
               id="username"
               type="text"
-              name="Username"
+              name="name"
               required
               maxlength="20"
+              class="shadow-md"
             />
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" required />
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password" required />
+            <label for="email" class="font-paragraph text-lg">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              class="shadow-md"
+            />
+            <label for="password" class="font-paragraph text-lg"
+              >Password</label
+            >
+            <input
+              id="password"
+              type="password"
+              name="password"
+              required
+              class="shadow-md"
+            />
+            <button
+              class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg"
+            >
+              Register
+            </button>
+            <p class="font-paragraph">
+              Already have an account?
+              <a href="/auth/login/">Login here!</a>
+            </p>
           </fieldset>
         </form>
       </section>

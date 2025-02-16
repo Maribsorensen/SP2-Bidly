@@ -37,6 +37,3 @@ export function toggleHamburgerMenu() {
     hamburgerMenu.classList.toggle("hidden");
   });
 };
-
-toggleHamburgerMenu();
-updateNav();

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bidly</title>
-    <script type="module" src="/src/app.js" defer></script>
+    <script type="module" src="/src/main.js" defer></script>
   </head>
   <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header class="bg-brand-banner">
@@ -120,7 +120,7 @@
           <fieldset
             class="container text-center rounded-lg flex flex-col mx-auto justify-between gap-5"
           >
-            <label for="Email" class="font-paragraph text-lg">Email</label>
+            <label for="email" class="font-paragraph text-lg">Email</label>
             <input
               id="email"
               type="email"
@@ -143,7 +143,7 @@
             >
               Login
             </button>
-            <p>
+            <p class="font-paragraph">
               Don't have an account?
               <a href="/auth/register/">Register here!</a>
             </p>

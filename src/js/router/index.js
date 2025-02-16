@@ -1,3 +1,5 @@
+import { toggleHamburgerMenu, updateNav } from "../global/utils/updateNav.js";
+
 export default async function router(pathname = window.location.href) {
   switch (pathname) {
     case "/":
@@ -12,4 +14,7 @@ export default async function router(pathname = window.location.href) {
     default:
       await import("./views/notFound.js");
   }
-}
+};
+
+updateNav();
+toggleHamburgerMenu();

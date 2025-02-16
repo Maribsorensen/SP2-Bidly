@@ -1,4 +1,1 @@
-import { toggleHamburgerMenu, updateNav } from "../../global/utils/updateNav";
-
-toggleHamburgerMenu();
-updateNav();
+console.log("Test");
