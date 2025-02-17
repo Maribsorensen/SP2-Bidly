@@ -5,13 +5,13 @@ export async function apiRequest(endpoint, method = "GET", body = null, requires
     "Content-Type": "application/json",
   };
 
-  // Add authorization header if required
+
   if (requiresAuth) {
     const token = localStorage.getItem("token");
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;
     }
-    headers["X-Noroff-API-Key"] = API_KEY; // Assuming API_KEY is always required for authorized requests
+    headers["X-Noroff-API-Key"] = API_KEY;
   }
 
   const config = {
