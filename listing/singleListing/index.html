@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bidly</title>
-    <script type="module" src="src/main.js" defer></script>
+    <script type="module" src="/src/main.js" defer></script>
   </head>
   <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header class="bg-brand-banner">
@@ -25,7 +25,7 @@
               >Home</a
             >
             <a
-              href="/listing/singleListing/"
+              href="/profile/"
               class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
               >My Profile</a
             >
@@ -108,23 +108,22 @@
         </div>
       </nav>
     </header>
-    <main class="bg-slate-100 p-5">
-      <section class="flex shadow-md mx-auto w-3/4">
+    <main>
+      <section id="listing-description" class="flex">
         <div class="w-2/4">
-          <img src="Gavel.png" alt="" class="w-full h-auto" />
+          <img src="../../Gavel.png" alt="" class="w-full h-auto" />
         </div>
-        <p class="w-2/4 m-auto pl-2">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
-          ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu
-        </p>
+        <div class="w-2/4 flex flex-col justify-between">
+          <div>
+            <h2 class="font-paragraph text-2xl">Title</h2>
+            <h3 class="font-paragraph text-xl text-slate-600">Username</h3>
+          </div>
+          <p class="font-paragraph text-lg">Description</p>
+          <h4 class="font-paragraph text-lg">Category</h4>
+        </div>
       </section>
-      <section>
-        <h2 class="font-paragraph text-3xl text-center">Latest Listings</h2>
-        <div id="listings-container" class="grid grid-cols-3 gap-2"></div>
-      </section>
-      <section></section>
+      <section id="bidding-section"></section>
     </main>
-    <footer class="bg-brand-banner"></footer>
+    <footer></footer>
   </body>
 </html>
