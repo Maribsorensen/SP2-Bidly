@@ -1,32 +1,12 @@
-
-// <div class="flex flex-col gap-3 text-center shadow-md">
-//   <div class="m-2">
-//     <img
-//       src="Gavel.png"
-//       alt=""
-//       class="justify-self-center w-full h-auto rounded-md"
-//     />
-//   </div>
-//   <div>
-//     <h3 class="font-paragraph text-2xl">Title</h3>
-//     <p class="font-paragraph text-lg text-slate-600">Username</p>
-//   </div>
-//   <div>
-//     <h4 class="font-paragraph text-lg">Latest bid</h4>
-//     <p class="font-paragraph text-lg">156€</p>
-//   </div>
-//   <button
-//     class="w-fit font-paragraph text-lg bg-brand-main hover:bg-brand-mainhover transition duration-200 px-2 rounded-md text-white mx-auto"
-//   >
-//     Bid on object
-//   </button>
-// </div>
-
 import { readListings } from "../../listing/read";
 
 export function createListingElement(listing) {
   const listingElement = document.createElement("div");
   listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md");
+
+  listingElement.addEventListener("click", () => {
+    window.location.href = `/listing/singleListing/?id=${listing.id}`;
+  });
 
   const listingImageContainer = document.createElement("div");
   listingImageContainer.classList.add("m-2");

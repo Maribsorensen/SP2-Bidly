@@ -11,3 +11,12 @@ export async function readListings(limit = 12, page = 1, tag = "") {
   }
   return apiRequest(url, "GET", null, true);
 };
+
+export async function readSingleListing(id) {
+  if (!id) throw new Error("Listing ID is required");
+
+  const url = new URL(`${API_AUCTION_LISTINGS}/${id}`);
+  url.searchParams.append("_seller", "true");
+
+  return apiRequest(url, "GET", null, true);
+}

@@ -12,7 +12,7 @@ export default async function router(pathname = window.location.href) {
       await import("./views/register.js");
       break;
     case "/listing/singleListing/":
-      await import("./views/singleListing");
+      await import("./views/singleListing.js");
       break;
     default:
       await import("./views/notFound.js");
