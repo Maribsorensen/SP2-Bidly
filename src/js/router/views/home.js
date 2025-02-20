@@ -12,11 +12,19 @@ export function createListingElement(listing) {
   listingImageContainer.classList.add("m-2");
   listingElement.appendChild(listingImageContainer);
 
-  if (listing.media && listing.media.url) {
+  if (listing.media && listing.media.length > 0) {
+    const firstImage = listing.media[0];
     const listingImage = document.createElement("img");
-    listingImage.setAttribute("src", listing.media.url);
-    listingImage.setAttribute("alt", listing.media.alt || "Listing image");
+    listingImage.setAttribute("src", firstImage.url);
+    listingImage.setAttribute("alt", firstImage.alt || "Listing image");
+    listingImage.classList.add("w-full", "h-60", "object-cover");
     listingImageContainer.appendChild(listingImage);
+  } else {
+
+    const placeholderImage = document.createElement("img");
+    placeholderImage.setAttribute("src", "path_to_placeholder_image.jpg");
+    placeholderImage.setAttribute("alt", "No image available");
+    listingImageContainer.appendChild(placeholderImage);
   }
 
   const listingInformation = document.createElement("div");

@@ -109,31 +109,43 @@
       </nav>
     </header>
     <main>
-      <section id="listing-description" class="flex">
-        <div class="w-2/4">
+      <section
+        id="listing-description"
+        class="flex flex-col md:flex-row gap-6 p-6"
+      >
+        <!-- Image container with carousel -->
+        <div id="image-container" class="w-full md:w-2/4 relative">
           <img
             id="listing-image"
             src="../../Gavel.png"
-            alt=""
-            class="w-full h-auto"
+            alt="Default image"
+            class="w-full h-56 object-cover rounded-lg shadow-md mb-4"
           />
         </div>
-        <div class="w-2/4 flex flex-col justify-between">
+
+        <!-- Listing details -->
+        <div class="w-full md:w-2/4 flex flex-col justify-between">
           <div>
-            <h2 id="listing-title" class="font-paragraph text-2xl">Title</h2>
+            <h2 id="listing-title" class="font-paragraph text-2xl mb-2">
+              Title
+            </h2>
             <h3
               id="listing-seller"
-              class="font-paragraph text-xl text-slate-600"
+              class="font-paragraph text-xl text-slate-600 mb-4"
             >
               Username
             </h3>
           </div>
-          <p id="listing-description-text" class="font-paragraph text-lg">
+
+          <p id="listing-description-text" class="font-paragraph text-lg mb-4">
             Description
           </p>
-          <h4 id="listing-category" class="font-paragraph text-lg">Category</h4>
+          <h4 id="listing-category" class="font-paragraph text-lg mb-4">
+            Category
+          </h4>
         </div>
       </section>
+
       <section id="bidding-section"></section>
     </main>
     <footer></footer>
