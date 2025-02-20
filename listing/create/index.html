@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bidly</title>
+    <script type="module" src="/src/main.js" defer></script>
+  </head>
+  <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+    <header class="bg-brand-banner">
+      <nav class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center">
+            <a href="/" class="text-brand-main font-heading text-4xl">Bidly</a>
+            <img
+              src="Gavel.png"
+              alt="Bidly Logo placeholder"
+              class="h-8 w-auto"
+            />
+          </div>
+          <div class="hidden md:flex items-center space-x-6">
+            <a
+              href="/"
+              class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
+              >Home</a
+            >
+            <a
+              href="/profile/"
+              class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
+              >My Profile</a
+            >
+            <div class="flex space-x-4">
+              <a
+                href="/auth/login/"
+                id="loginLink"
+                class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
+                >Login</a
+              >
+              <a
+                href="/auth/register/"
+                id="registerLink"
+                class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
+                >Register</a
+              >
+            </div>
+            <button
+              id="logoutButton"
+              class="text-white font-paragraph bg-brand-main p-8"
+            >
+              Logout
+            </button>
+          </div>
+          <div class="flex md:hidden items-center">
+            <button id="hamburger-button" class="text-white">
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 6h18M3 12h18M3 18h18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="hidden" id="hamburger-menu">
+          <ul class="flex flex-col space-y-2 mt-4 items-center">
+            <li>
+              <a
+                href="/"
+                class="block text-white font-paragraph hover:text-brand-main transition duration-200 border-b-2 border-white"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="/profile/"
+                class="block text-white font-paragraph hover:text-brand-main transition duration-200"
+                >My Profile</a
+              >
+            </li>
+            <li>
+              <a
+                href="/auth/login/"
+                class="block text-white font-paragraph hover:text-brand-main transition duration-200"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                href="/auth/register/"
+                class="block text-white font-paragraph hover:text-brand-main transition duration-200"
+                >Register</a
+              >
+            </li>
+            <li>
+              <button id="logoutButtonMobile" class="text-white font-paragraph">
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="bg-slate-100">
+      <h1 class="font-paragraph justify-self-center text-2xl">
+        Create a new listing
+      </h1>
+      <form name="createListing">
+        <fieldset
+          class="container rounded-lg flex flex-col mx-auto justify-between w-2/4"
+        >
+          <label for="title" class="font-paragraph text-lg">Title</label>
+          <input type="text" name="title" id="title" class="shadow-md mb-4" />
+          <label for="tags" class="font-paragraph text-lg"
+            >Tags (comma-separated):</label
+          >
+          <input type="text" name="tags" id="tags" class="shadow-md mb-4" />
+          <label for="endsAt" class="font-paragraph text-lg"
+            >Listing end-time</label
+          >
+          <input
+            type="datetime-local"
+            name="endsAt"
+            id="endsAt"
+            class="shadow-md mb-4"
+          />
+          <label for="description" class="font-paragraph text-lg"
+            >Description</label
+          >
+          <textarea
+            name="description"
+            id="description"
+            class="shadow-md mb-4"
+          ></textarea>
+          <label for="mediaUrl" class="font-paragraph text-lg">Media url</label>
+          <input
+            type="text"
+            name="mediaUrl"
+            id="mediaUrl"
+            class="shadow-md mb-4"
+          />
+          <label for="mediaAlt" class="font-paragraph text-lg"
+            >Short media Description</label
+          >
+          <input
+            type="text"
+            name="mediaAlt"
+            id="mediaAlt"
+            class="shadow-md mb-4"
+          />
+          <button
+            class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg w-fit mx-auto"
+          >
+            Create listing
+          </button>
+        </fieldset>
+      </form>
+    </main>
+  </body>
+</html>
