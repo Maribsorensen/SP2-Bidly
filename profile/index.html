@@ -109,7 +109,40 @@
       </nav>
     </header>
     <main class="bg-slate-100">
-      <a href="/listing/create/">Create listing</a>
+      <section id="profile-information">
+        <h1
+          id="profile-username"
+          class="font-paragraph text-2xl justify-self-center"
+        >
+          Username profile
+        </h1>
+        <div class="flex gap-4">
+          <div class="w-2/4">
+            <img
+              src="../Gavel.png"
+              alt=""
+              class="w-full h-auto rounded-full"
+              id="profile-avatar"
+            />
+          </div>
+          <div class="w-2/4 flex flex-col gap-4 justify-center">
+            <p id="profile-bio" class="font-paragraph text-xl">Bio</p>
+            <p id="profile-credits" class="font-paragraph text-xl">Credits</p>
+            <p id="profile-total-listings" class="font-paragraph text-xl">
+              Total listings
+            </p>
+            <p id="profile-total-wins" class="font-paragraph text-xl">
+              Total wins
+            </p>
+          </div>
+        </div>
+      </section>
+      <section></section>
+      <h2 class="font-paragraph text-2xl">My listings</h2>
+      <a href="/listing/create/" class="bg-brand-main hover:bg-brand-mainhover"
+        >Create listing</a
+      >
+      <div id="profile-listings"></div>
     </main>
   </body>
 </html>

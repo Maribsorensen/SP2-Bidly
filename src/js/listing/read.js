@@ -6,8 +6,8 @@ export async function readListings(limit = 12, page = 1, tag = "") {
   url.searchParams.append("limit", limit);
   url.searchParams.append("page", page);
   url.searchParams.append("_seller", "true");
-  url.searchParams.append("sort", "created");  // Sort by created field
-  url.searchParams.append("order", "desc");   // Descending order (latest first)
+  url.searchParams.append("sort", "created");
+  url.searchParams.append("order", "desc");
   if (tag) {
     url.searchParams.append("tag", tag);
   }
