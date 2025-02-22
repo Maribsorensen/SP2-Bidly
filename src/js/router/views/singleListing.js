@@ -1,3 +1,4 @@
+import { bids, checkUserStatus, handleBidSubmission } from "../../listing/bid";
 import { readSingleListing } from "../../listing/read";
 
 async function displayListing() {
@@ -87,7 +88,16 @@ async function displayListing() {
   }
 }
 
+const bidForm = document.querySelector("form[name='bid-form']");
+if (bidForm) {
+  bidForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await handleBidSubmission();
+  });
+}
 
+checkUserStatus();
+bids();
 displayListing();
 
 
