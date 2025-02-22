@@ -17,7 +17,7 @@ export function createListingElement(listing) {
     const listingImage = document.createElement("img");
     listingImage.setAttribute("src", firstImage.url);
     listingImage.setAttribute("alt", firstImage.alt || "Listing image");
-    listingImage.classList.add("w-full", "h-60", "object-cover");
+    listingImage.classList.add("w-full", "h-60", "object-cover", "rounded-md");
     listingImageContainer.appendChild(listingImage);
   } else {
 

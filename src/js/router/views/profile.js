@@ -1,3 +1,4 @@
+import { readListingsByUser } from "../../listing/read";
 import { readProfile } from "../../profile/read";
 
 async function displayUserProfile() {
@@ -40,4 +41,73 @@ async function displayUserProfile() {
   }
 }
 
+async function displayProfileListings() {
+  const username = localStorage.getItem("username");
+  if (!username) {
+    console.error("No username found in localStorage.");
+    return;
+  }
+
+  try {
+
+    const listingData = await readListingsByUser(username);
+
+    const listingContainer = document.getElementById("profile-listings");
+    listingContainer.innerHTML = "";
+
+    listingData.data.forEach(listing => {
+      const listingElement = createProfileListingElement(listing);
+      listingContainer.appendChild(listingElement);
+    });
+  } catch (error) {
+    console.error("Error displaying listings by user:", error);
+  }
+}
+
+export function createProfileListingElement(listing) {
+  const listingElement = document.createElement("div");
+  listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md");
+
+  listingElement.addEventListener("click", () => {
+    window.location.href = `/listing/singleListing/?id=${listing.id}`;
+  });
+
+  const listingImageContainer = document.createElement("div");
+  listingImageContainer.classList.add("m-2");
+  listingElement.appendChild(listingImageContainer);
+
+  if (listing.media && listing.media.length > 0) {
+    const firstImage = listing.media[0];
+    const listingImage = document.createElement("img");
+    listingImage.setAttribute("src", firstImage.url);
+    listingImage.setAttribute("alt", firstImage.alt || "Listing image");
+    listingImage.classList.add("w-full", "h-60", "object-cover", "rounded-md");
+    listingImageContainer.appendChild(listingImage);
+  } else {
+
+    const placeholderImage = document.createElement("img");
+    placeholderImage.setAttribute("src", "path_to_placeholder_image.jpg");
+    placeholderImage.setAttribute("alt", "No image available");
+    listingImageContainer.appendChild(placeholderImage);
+  }
+
+  const listingInformation = document.createElement("div");
+  listingElement.appendChild(listingInformation);
+
+  const listingTitle = document.createElement("h3");
+  listingTitle.textContent = listing.title;
+  listingTitle.classList.add("font-paragraph", "text-2xl");
+  listingInformation.appendChild(listingTitle);
+
+  if (listing.seller && listing.seller.name) {
+    const listingSeller = document.createElement("p");
+    listingSeller.textContent = `Sold by: ${listing.seller.name}`;
+    listingSeller.classList.add("font-paragraph", "text-lg", "text-slate-600");
+    listingInformation.appendChild(listingSeller);
+  }
+
+  return listingElement;
+};
+
+displayProfileListings();
 displayUserProfile();
