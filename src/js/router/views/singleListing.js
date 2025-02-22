@@ -92,12 +92,12 @@ const bidForm = document.querySelector("form[name='bid-form']");
 if (bidForm) {
   bidForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    await handleBidSubmission();
+    await handleBidSubmission(event);
   });
 }
 
-checkUserStatus();
 bids();
+checkUserStatus();
 displayListing();
 
 
