@@ -66,7 +66,7 @@ async function displayProfileListings() {
 
 export function createProfileListingElement(listing) {
   const listingElement = document.createElement("div");
-  listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md");
+  listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md", "justify-between");
 
   listingElement.addEventListener("click", () => {
     window.location.href = `/listing/singleListing/?id=${listing.id}`;
