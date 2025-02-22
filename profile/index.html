@@ -125,7 +125,9 @@
               id="profile-avatar"
             />
           </div>
-          <div class="w-2/4 flex flex-col gap-4 justify-center">
+          <div
+            class="w-2/4 flex flex-col gap-4 bg-white shadow-md h-fit my-auto p-2"
+          >
             <p id="profile-bio" class="font-paragraph text-xl">Bio</p>
             <p id="profile-credits" class="font-paragraph text-xl">Credits</p>
             <p id="profile-total-listings" class="font-paragraph text-xl">
@@ -138,8 +140,10 @@
         </div>
       </section>
       <section></section>
-      <h2 class="font-paragraph text-2xl">My listings</h2>
-      <a href="/listing/create/" class="bg-brand-main hover:bg-brand-mainhover"
+      <h2 class="font-paragraph text-2xl justify-self-center">My listings</h2>
+      <a
+        href="/listing/create/"
+        class="bg-brand-main hover:bg-brand-mainhover font-paragraph p-2 rounded-lg text-lg w-fit text-white"
         >Create listing</a
       >
       <div id="profile-listings"></div>

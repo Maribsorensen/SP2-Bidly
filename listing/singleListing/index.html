@@ -108,12 +108,11 @@
         </div>
       </nav>
     </header>
-    <main>
+    <main class="bg-slate-100">
       <section
         id="listing-description"
         class="flex flex-col md:flex-row gap-6 p-6"
       >
-        <!-- Image container with carousel -->
         <div id="image-container" class="w-full md:w-2/4 relative">
           <img
             id="listing-image"
@@ -122,8 +121,6 @@
             class="w-full h-56 object-cover rounded-lg shadow-md mb-4"
           />
         </div>
-
-        <!-- Listing details -->
         <div class="w-full md:w-2/4 flex flex-col justify-between">
           <div>
             <h2 id="listing-title" class="font-paragraph text-2xl mb-2">
@@ -145,8 +142,48 @@
           </h4>
         </div>
       </section>
-
-      <section id="bidding-section"></section>
+      <section id="bid-section">
+        <h5 id="no-user" class="font-paragraph text-xl justify-self-center">
+          Log in to bid on this listing
+        </h5>
+        <form name="bid-form" class="flex justify-center">
+          <fieldset
+            class="w-2/4 bg-white shadow-lg rounded-lg p-6 border border-gray-200"
+          >
+            <div id="bid-details" class="pb-4 border-b border-gray-300">
+              <p id="latest-bid" class="font-paragraph text-lg">
+                Latest bid: <strong>0 Credits</strong>
+              </p>
+              <p id="ends-at" class="font-paragraph text-lg">
+                Bidding ends at: <span>02:15:30</span>
+              </p>
+            </div>
+            <div
+              id="bid-input"
+              class="pt-4 pb-6 border-b border-gray-300 flex flex-col gap-2"
+            >
+              <label for="bid-amount" class="font-paragraph text-lg"
+                >Your bid:</label
+              >
+              <input
+                type="number"
+                name="bid"
+                id="bid-amount"
+                required
+                class="border border-gray-300 rounded-md p-2 w-full focus:outline-none focus:ring-2 focus:ring-brand-main"
+              />
+            </div>
+            <div class="pt-4 flex justify-center">
+              <button
+                type="submit"
+                class="bg-brand-main hover:bg-brand-mainhover font-paragraph p-2 rounded-lg text-lg text-white w-fit"
+              >
+                Place Bid
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
     </main>
     <footer></footer>
   </body>
