@@ -1,3 +1,4 @@
+import { deleteListing } from "../../listing/delete";
 import { readListingsByUser } from "../../listing/read";
 import { readProfile } from "../../profile/read";
 
@@ -67,7 +68,7 @@ async function displayProfileListings() {
 export function createProfileListingElement(listing) {
   const listingElement = document.createElement("div");
   listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md", "justify-between");
-
+  listingElement.setAttribute("data-id", listing.id);
   listingElement.addEventListener("click", () => {
     window.location.href = `/listing/singleListing/?id=${listing.id}`;
   });
@@ -105,6 +106,17 @@ export function createProfileListingElement(listing) {
     listingSeller.classList.add("font-paragraph", "text-lg", "text-slate-600");
     listingInformation.appendChild(listingSeller);
   }
+
+  const editListingButton = document.createElement("button");
+  editListingButton.textContent = "Edit listing";
+  editListingButton.classList.add("w-fit", "font-paragraph", "text-lg", "bg-brand-main", "hover:bg-brand-mainhover", "transition", "duration-200", "px-2", "rounded-md", "text-white", "mx-auto");
+  listingElement.appendChild(editListingButton);
+
+  const deleteListingIcon = document.createElement("i");
+  deleteListingIcon.className = "fa-regular fa-trash-can text-slate-700 hover:text-red-600 cursor-pointer transition duration-200 text-2xl p-2 w-fit mx-auto";
+  deleteListingIcon.setAttribute("aria-label", "Delete Listing");
+  deleteListingIcon.addEventListener("click", deleteListing);
+  listingElement.appendChild(deleteListingIcon);
 
   return listingElement;
 };

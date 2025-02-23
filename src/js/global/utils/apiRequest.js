@@ -25,6 +25,10 @@ export async function apiRequest(endpoint, method = "GET", body = null, requires
 
   const response = await fetch(endpoint, config);
 
+  if (response.status === 204) {
+    return null;
+  }
+
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.message || "API request failed");
