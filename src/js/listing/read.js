@@ -9,8 +9,11 @@ export async function readListings(limit = 12, page = 1, tag = "") {
   url.searchParams.append("sort", "created");
   url.searchParams.append("order", "desc");
   if (tag) {
-    url.searchParams.append("tag", tag);
+    url.searchParams.append("_tag", tag);
   }
+  const response = await apiRequest(url, "GET", null, true);
+  response.data = response.data.filter((listing) => listing._active === true);
+
   return apiRequest(url, "GET", null, true);
 };
 

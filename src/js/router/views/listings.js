@@ -50,29 +50,59 @@ export function createListingElement(listing) {
   return listingElement;
 };
 
-export async function displayListings() {
+export async function displayListings(category = "", page = 1, append = false) {
   try {
-    const listingsData = await readListings();
+    const listingsData = await readListings(12, page, category);
     const listingsContainer = document.getElementById("listings-container");
 
-    listingsContainer.innerHTML = "";
+    if (!append) {
+      listingsContainer.innerHTML = "";
+    }
 
     listingsData.data.forEach(listing => {
       const listingElement = createListingElement(listing);
       listingsContainer.appendChild(listingElement);
     });
+
+
+    const showMoreButton = document.getElementById("show-more-btn");
+    if (listingsData.data.length < 12) {
+      showMoreButton.style.display = "none";
+    } else {
+      showMoreButton.style.display = "block";
+    }
   } catch (error) {
-    console.error("error displaying listings:", error);
+    console.error("Error displaying listings:", error);
   }
-};
+}
+
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+const urlCategory = getQueryParam("category") ? getQueryParam("category").toLowerCase() : "";
+
+let currentPage = 1;
+let currentCategory = urlCategory;
+
+displayListings(currentCategory, currentPage, false);
 
 document.querySelectorAll(".category-menu a").forEach((categoryLink) => {
   categoryLink.addEventListener("click", (event) => {
     event.preventDefault();
 
-    const selectedCategory = categoryLink.textContent.trim();
-    window.location.href = `/listing/?category=${encodeURIComponent(selectedCategory)}`;
+    currentPage = 1;
+    currentCategory = categoryLink.textContent.trim().toLowerCase();
+
+    const newUrl = `/listing/?category=${encodeURIComponent(currentCategory)}`;
+    window.history.pushState({ path: newUrl }, "", newUrl);
+
+    displayListings(currentCategory, currentPage, false);
   });
 });
 
-displayListings();
+document.getElementById("show-more-btn").addEventListener("click", () => {
+  currentPage++;
+  displayListings(currentCategory, currentPage, true);
+});

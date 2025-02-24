@@ -34,7 +34,7 @@ async function displayListing() {
     titleElement.textContent = listing.title || "No title available";
     usernameElement.textContent = listing.seller ? listing.seller.name : "Unknown seller";
     descriptionElement.textContent = listing.description || "No description available";
-    categoryElement.textContent = listing.category || "Uncategorized";
+    categoryElement.textContent = listing.tags || "Uncategorized";
 
     if (listing.media && listing.media.length > 0) {
 
