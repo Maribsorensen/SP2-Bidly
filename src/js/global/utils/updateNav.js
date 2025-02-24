@@ -1,34 +1,21 @@
 export function updateNav() {
   const username = localStorage.getItem("username");
 
-  const loginLinkDesktop = document.querySelector('a[href="/auth/login/"]');
-  const registerLinkDesktop = document.querySelector('a[href="/auth/register/"]');
-  const loginLinkMobile = document.querySelector('#hamburger-menu a[href="/auth/login/"]');
-  const registerLinkMobile = document.querySelector('#hamburger-menu a[href="/auth/register/"]');
-
-  const logoutButton = document.getElementById("logoutButton");
-  const logoutButtonMobile = document.getElementById("logoutButtonMobile");
+  const loginLinks = document.querySelectorAll('a[href="/auth/login/"]');
+  const registerLinks = document.querySelectorAll('a[href="/auth/register/"]');
+  const logoutButtons = document.querySelectorAll("#logoutButton, #logoutButtonMobile");
 
   if (username) {
-    loginLinkDesktop.style.display = "none";
-    registerLinkDesktop.style.display = "none";
-    loginLinkMobile.style.display = "none";
-    registerLinkMobile.style.display = "none";
+    loginLinks.forEach(link => link.style.display = "none");
+    registerLinks.forEach(link => link.style.display = "none");
+    logoutButtons.forEach(button => button.style.display = "block");
   } else {
-    loginLinkDesktop.style.display = "block";
-    registerLinkDesktop.style.display = "block";
-    loginLinkMobile.style.display = "block";
-    registerLinkMobile.style.display = "block";
+    loginLinks.forEach(link => link.style.display = "block");
+    registerLinks.forEach(link => link.style.display = "block");
+    logoutButtons.forEach(button => button.style.display = "none");
   }
+}
 
-  if (username) {
-    logoutButton.style.display = "block";
-    logoutButtonMobile.style.display = "block";
-  } else {
-    logoutButton.style.display = "none";
-    logoutButtonMobile.style.display = "none";
-  }
-};
 export function toggleHamburgerMenu() {
   const hamburgerButton = document.querySelector("#hamburger-button");
   const hamburgerMenu = document.querySelector("#hamburger-menu");
@@ -36,4 +23,26 @@ export function toggleHamburgerMenu() {
   hamburgerButton.addEventListener("click", () => {
     hamburgerMenu.classList.toggle("hidden");
   });
-};
+}
+
+export function setupCategoryDropdown() {
+  const categoryButton = document.querySelector(".category-button");
+  const categoryMenu = document.querySelector(".category-menu");
+
+  if (!categoryButton || !categoryMenu) return;
+
+  // Click behavior for mobile
+  categoryButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    categoryMenu.classList.toggle("hidden");
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (event) => {
+    if (!categoryButton.contains(event.target) && !categoryMenu.contains(event.target)) {
+      categoryMenu.classList.add("hidden");
+    }
+  });
+}
+
+

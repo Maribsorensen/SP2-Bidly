@@ -1,4 +1,4 @@
-import { toggleHamburgerMenu, updateNav } from "../global/utils/updateNav.js";
+import { setupCategoryDropdown, toggleHamburgerMenu, updateNav } from "../global/utils/updateNav.js";
 
 export default async function router(pathname = window.location.href) {
   switch (pathname) {
@@ -30,3 +30,4 @@ export default async function router(pathname = window.location.href) {
 
 updateNav();
 toggleHamburgerMenu();
+setupCategoryDropdown();
