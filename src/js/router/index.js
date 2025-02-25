@@ -1,3 +1,4 @@
+import { setLogoutListener } from "../auth/logout.js";
 import { setupCategoryDropdown, toggleHamburgerMenu, updateNav } from "../global/utils/updateNav.js";
 
 export default async function router(pathname = window.location.href) {
@@ -34,3 +35,4 @@ export default async function router(pathname = window.location.href) {
 updateNav();
 toggleHamburgerMenu();
 setupCategoryDropdown();
+setLogoutListener();

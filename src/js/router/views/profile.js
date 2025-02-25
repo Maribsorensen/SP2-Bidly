@@ -1,3 +1,4 @@
+import { authGuard } from "../../global/utils/authGuard";
 import { deleteListing } from "../../listing/delete";
 import { readListingsByUser } from "../../listing/read";
 import { readProfile } from "../../profile/read";
@@ -122,3 +123,4 @@ export function createProfileListingElement(listing) {
 
 displayProfileListings();
 displayUserProfile();
+authGuard();
