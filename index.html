@@ -18,51 +18,52 @@
             <a href="/" class="text-brand-main font-heading text-4xl">Bidly</a>
             <i class="fa-solid fa-gavel text-brand-main text-3xl"></i>
           </div>
+
+          <div class="relative group">
+            <button
+              class="text-white text-lg font-paragraph flex items-center space-x-1 hover:text-brand-main transition duration-200 category-button"
+            >
+              <span>Categories</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md hidden category-menu"
+            >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >All</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Art</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Fashion</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Jewelry</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Books</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Vintage</a
+              >
+            </div>
+          </div>
           <div
             class="hidden md:flex items-center space-x-6 flex-nowrap w-full justify-between"
           >
-            <div class="relative group">
-              <button
-                class="text-white text-lg font-paragraph flex items-center space-x-1 hover:text-brand-main transition duration-200 category-button"
-              >
-                <span>Categories</span>
-                <i class="fa-solid fa-chevron-down"></i>
-              </button>
-              <div
-                class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md hidden category-menu"
-              >
-                <a
-                  href="/listing/"
-                  class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
-                  >All</a
-                >
-                <a
-                  href="/listing/"
-                  class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
-                  >Art</a
-                >
-                <a
-                  href="/listing/"
-                  class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
-                  >Fashion</a
-                >
-                <a
-                  href="/listing/"
-                  class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
-                  >Jewelry</a
-                >
-                <a
-                  href="/listing/"
-                  class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
-                  >Books</a
-                >
-                <a
-                  href="/listing/"
-                  class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
-                  >Vintage</a
-                >
-              </div>
-            </div>
             <form action="/search" method="GET" class="flex w-full max-w-lg">
               <input
                 type="text"
@@ -158,7 +159,10 @@
               >
             </li>
             <li>
-              <button id="logoutButtonMobile" class="text-white font-paragraph">
+              <button
+                id="logoutButtonMobile"
+                class="text-white bg-brand-cta text-lg hover:font-semibold hover:shadow-lg transition rounded-md px-2 font-paragraph mb-2"
+              >
                 Logout
               </button>
             </li>
@@ -167,7 +171,7 @@
       </nav>
     </header>
     <main class="bg-slate-100 p-5">
-      <section class="flex shadow-md mx-auto w-3/4">
+      <section class="flex shadow-md mx-auto md:w-3/4">
         <div class="w-2/4">
           <img src="Gavel.png" alt="" class="w-full h-auto" />
         </div>
@@ -179,7 +183,10 @@
       </section>
       <section>
         <h2 class="font-paragraph text-3xl text-center">Latest Listings</h2>
-        <div id="listings-container" class="grid grid-cols-3 gap-2"></div>
+        <div
+          id="listings-container"
+          class="grid sm:grid-cols-2 md:grid-cols-3 gap-2"
+        ></div>
       </section>
       <section></section>
     </main>

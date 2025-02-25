@@ -67,14 +67,13 @@ async function displayProfileListings() {
 
 export function createProfileListingElement(listing) {
   const listingElement = document.createElement("div");
-  listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md", "justify-between");
+  listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md", "justify-between", "p-2");
   listingElement.setAttribute("data-id", listing.id);
   listingElement.addEventListener("click", () => {
     window.location.href = `/listing/singleListing/?id=${listing.id}`;
   });
 
   const listingImageContainer = document.createElement("div");
-  listingImageContainer.classList.add("m-2");
   listingElement.appendChild(listingImageContainer);
 
   if (listing.media && listing.media.length > 0) {
