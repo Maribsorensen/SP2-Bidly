@@ -108,16 +108,23 @@ export function createProfileListingElement(listing) {
     listingInformation.appendChild(listingSeller);
   }
 
-  const editListingButton = document.createElement("button");
-  editListingButton.textContent = "Edit listing";
-  editListingButton.classList.add("w-fit", "font-paragraph", "text-lg", "bg-brand-main", "hover:bg-brand-mainhover", "transition", "duration-200", "px-2", "rounded-md", "text-white", "mx-auto");
-  listingElement.appendChild(editListingButton);
+  const username = localStorage.getItem("username");
+  if (username && listing.seller && listing.seller.name === username) {
+    const editListingButton = document.createElement("button");
+    editListingButton.textContent = "Edit listing";
+    editListingButton.classList.add("w-fit", "font-paragraph", "text-lg", "bg-brand-main", "hover:bg-brand-mainhover", "transition", "duration-200", "px-2", "rounded-md", "text-white", "mx-auto");
+    editListingButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      window.location.href = `/listing/edit/?id=${listing.id}`;
+    });
+    listingElement.appendChild(editListingButton);
 
-  const deleteListingIcon = document.createElement("i");
-  deleteListingIcon.className = "fa-regular fa-trash-can text-slate-700 hover:text-red-600 cursor-pointer transition duration-200 text-2xl p-2 w-fit mx-auto";
-  deleteListingIcon.setAttribute("aria-label", "Delete Listing");
-  deleteListingIcon.addEventListener("click", deleteListing);
-  listingElement.appendChild(deleteListingIcon);
+    const deleteListingIcon = document.createElement("i");
+    deleteListingIcon.className = "fa-regular fa-trash-can text-slate-700 hover:text-red-600 cursor-pointer transition duration-200 text-2xl p-2 w-fit mx-auto";
+    deleteListingIcon.setAttribute("aria-label", "Delete Listing");
+    deleteListingIcon.addEventListener("click", deleteListing);
+    listingElement.appendChild(deleteListingIcon);
+  }
 
   return listingElement;
 };
