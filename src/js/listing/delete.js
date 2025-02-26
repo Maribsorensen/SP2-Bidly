@@ -13,16 +13,17 @@ export async function deleteListing(event) {
     return;
   }
 
-  const confirmDelete = window.confirm("Are you sure you want to delete this listing?");
-  if (!confirmDelete) {
-    return;
-  }
-
-  try {
-    await apiRequest(`${API_AUCTION_LISTINGS}/${listingId}`, "DELETE", null, true);
-    listingElement.remove();
-  } catch (error) {
-    showToast({ message: "Error deleting listing: " + error.message, type: "error" });
-    alert("Failed to delete listing. Please try again.");
-  }
+  showToast({
+    message: "Are you sure you want to delete this listing?",
+    type: "confirm",
+    onConfirm: async () => {
+      try {
+        await apiRequest(`${API_AUCTION_LISTINGS}/${listingId}`, "DELETE", null, true);
+        listingElement.remove();
+        showToast({ message: "Listing deleted successfully!", type: "success" });
+      } catch (error) {
+        showToast({ message: "Error deleting listing: " + error.message, type: "error" });
+      }
+    }
+  });
 }

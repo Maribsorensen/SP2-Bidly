@@ -21,6 +21,46 @@ export function showToast({ message, type = "info", duration = 3000, onConfirm, 
     document.body.appendChild(toastContainer);
   }
 
+  if (type === "confirm") {
+    const overlay = document.createElement("div");
+    overlay.className = "fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50";
+
+    const dialog = document.createElement("div");
+    dialog.className = "bg-white p-5 rounded-lg shadow-lg w-80 text-center";
+
+    const text = document.createElement("p");
+    text.className = "text-lg font-paragraph";
+    text.textContent = message;
+
+    const buttonContainer = document.createElement("div");
+    buttonContainer.className = "mt-4 flex justify-center space-x-4";
+
+    const yesButton = document.createElement("button");
+    yesButton.className = "px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 font-paragraph";
+    yesButton.textContent = "Yes";
+    yesButton.addEventListener("click", () => {
+      if (onConfirm) onConfirm();
+      document.body.removeChild(overlay);
+    });
+
+    const noButton = document.createElement("button");
+    noButton.className = "px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 font-paragraph";
+    noButton.textContent = "No";
+    noButton.addEventListener("click", () => {
+      if (onCancel) onCancel();
+      document.body.removeChild(overlay);
+    });
+
+    buttonContainer.appendChild(yesButton);
+    buttonContainer.appendChild(noButton);
+    dialog.appendChild(text);
+    dialog.appendChild(buttonContainer);
+    overlay.appendChild(dialog);
+    document.body.appendChild(overlay);
+
+    return;
+  }
+
   const toast = document.createElement("div");
   toast.className = `flex items-center p-4 rounded-md shadow-md ${typeStyles[type]} transition-all transform scale-95 opacity-0 max-w-md w-full justify-center`;
 
