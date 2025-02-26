@@ -1,4 +1,5 @@
 import { API_AUCTION_LISTINGS } from "../global/constants";
+import { showToast } from "../global/utils/alert";
 import { apiRequest } from "../global/utils/apiRequest";
 
 export async function onCreateListing(event) {
@@ -27,9 +28,9 @@ export async function onCreateListing(event) {
   try {
     const result = await apiRequest(API_AUCTION_LISTINGS, "POST", listingData, true);
     console.log("Listing created:", result);
-    alert("listing successfully created");
+    showToast({ message: "Listing created successfully!", type: "success" });
     form.reset();
   } catch (error) {
-    alert("failed to create listing: " + error.message);
+    showToast({ message: "Failed to create listing: " + error.message, type: "error" });
   }
 };
