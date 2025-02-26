@@ -29,7 +29,7 @@ export async function onCreateListing(event) {
     const result = await apiRequest(API_AUCTION_LISTINGS, "POST", listingData, true);
     console.log("Listing created:", result);
     showToast({ message: "Listing created successfully!", type: "success" });
-    form.reset();
+    window.location.href = `/profile/`;
   } catch (error) {
     showToast({ message: "Failed to create listing: " + error.message, type: "error" });
   }

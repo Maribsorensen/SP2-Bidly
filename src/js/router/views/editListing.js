@@ -1,6 +1,8 @@
 import { authGuard } from "../../global/utils/authGuard";
+import { loadListingData, onEditListing } from "../../listing/update";
 
-const form = document.forms.updateListing;
+loadListingData();
 
-form.addEventListener("submit",);
+const form = document.forms.editListing;
+form.addEventListener("submit", onEditListing);
 authGuard();
