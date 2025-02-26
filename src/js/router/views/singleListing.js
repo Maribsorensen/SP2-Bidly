@@ -20,6 +20,8 @@ async function displayListing() {
       return;
     }
 
+    document.title = `${listing.title} | Bidly - Place Your Bid Now`;
+
     const listingContainer = document.getElementById("listing-description");
     if (!listingContainer) {
       showToast({ message: "Not able to show listing, please try again...", type: "error" });
