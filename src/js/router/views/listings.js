@@ -20,7 +20,6 @@ export function createListingElement(listing) {
     listingImage.classList.add("w-full", "h-60", "object-cover", "rounded-md");
     listingImageContainer.appendChild(listingImage);
   } else {
-
     const placeholderImage = document.createElement("img");
     placeholderImage.setAttribute("src", "path_to_placeholder_image.jpg");
     placeholderImage.setAttribute("alt", "No image available");
@@ -59,11 +58,17 @@ export async function displayListings(category = "", page = 1, append = false) {
       listingsContainer.innerHTML = "";
     }
 
-    listingsData.data.forEach(listing => {
-      const listingElement = createListingElement(listing);
-      listingsContainer.appendChild(listingElement);
-    });
-
+    if (listingsData.data.length === 0) {
+      const noListingsMessage = document.createElement("p");
+      noListingsMessage.textContent = "No listings available for this category.";
+      noListingsMessage.classList.add("text-center", "font-paragraph", "text-xl", "text-red-500", "mt-5");
+      listingsContainer.appendChild(noListingsMessage);
+    } else {
+      listingsData.data.forEach(listing => {
+        const listingElement = createListingElement(listing);
+        listingsContainer.appendChild(listingElement);
+      });
+    }
 
     const showMoreButton = document.getElementById("show-more-btn");
     if (listingsData.data.length < 12) {
@@ -83,6 +88,12 @@ function getQueryParam(param) {
 
 const urlCategory = getQueryParam("category") ? getQueryParam("category").toLowerCase() : "";
 
+const categoryName = urlCategory ? urlCategory.charAt(0).toUpperCase() + urlCategory.slice(1) : "Listings"; // Capitalize the first letter
+const h1Element = document.querySelector("h1");
+if (h1Element) {
+  h1Element.textContent = `${categoryName} Listings`;
+}
+
 let currentPage = 1;
 let currentCategory = urlCategory;
 
@@ -97,6 +108,9 @@ document.querySelectorAll(".category-menu a").forEach((categoryLink) => {
 
     const newUrl = `/listing/?category=${encodeURIComponent(currentCategory)}`;
     window.history.pushState({ path: newUrl }, "", newUrl);
+
+    const newCategoryName = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+    h1Element.textContent = `${newCategoryName} Listings`;
 
     displayListings(currentCategory, currentPage, false);
   });
