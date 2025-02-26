@@ -31,13 +31,11 @@ export function setupCategoryDropdown() {
 
   if (!categoryButton || !categoryMenu) return;
 
-  // Click behavior for mobile
   categoryButton.addEventListener("click", (event) => {
     event.preventDefault();
     categoryMenu.classList.toggle("hidden");
   });
 
-  // Close menu when clicking outside
   document.addEventListener("click", (event) => {
     if (!categoryButton.contains(event.target) && !categoryMenu.contains(event.target)) {
       categoryMenu.classList.add("hidden");

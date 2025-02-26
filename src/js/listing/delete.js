@@ -1,4 +1,5 @@
 import { API_AUCTION_LISTINGS } from "../global/constants";
+import { showToast } from "../global/utils/alert";
 import { apiRequest } from "../global/utils/apiRequest";
 
 export async function deleteListing(event) {
@@ -8,7 +9,7 @@ export async function deleteListing(event) {
   const listingId = listingElement.getAttribute("data-id");
 
   if (!listingId) {
-    console.error("Listing ID not found.");
+    showToast({ message: "Listing ID not found, please try again...", type: "error" });
     return;
   }
 
@@ -21,7 +22,7 @@ export async function deleteListing(event) {
     await apiRequest(`${API_AUCTION_LISTINGS}/${listingId}`, "DELETE", null, true);
     listingElement.remove();
   } catch (error) {
-    console.error("Error deleting listing:", error);
+    showToast({ message: "Error deleting listing: " + error.message, type: "error" });
     alert("Failed to delete listing. Please try again.");
   }
 }

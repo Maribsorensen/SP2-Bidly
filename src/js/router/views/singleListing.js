@@ -1,3 +1,4 @@
+import { showToast } from "../../global/utils/alert";
 import { bids, checkUserStatus, handleBidSubmission } from "../../listing/bid";
 import { readSingleListing } from "../../listing/read";
 
@@ -6,7 +7,7 @@ async function displayListing() {
   const listingId = params.get("id");
 
   if (!listingId) {
-    console.error("No listing ID found in URL");
+    showToast({ message: "Not able to find listing, please try again...", type: "error" });
     return;
   }
 
@@ -15,13 +16,13 @@ async function displayListing() {
     const listing = response.data;
 
     if (!listing) {
-      console.error("Listing not found");
+      showToast({ message: "Not able to find listing, please try again...", type: "error" });
       return;
     }
 
     const listingContainer = document.getElementById("listing-description");
     if (!listingContainer) {
-      console.error("Listing container not found");
+      showToast({ message: "Not able to show listing, please try again...", type: "error" });
       return;
     }
 
@@ -84,7 +85,7 @@ async function displayListing() {
       imageContainer.appendChild(defaultImg);
     }
   } catch (error) {
-    console.error("Error fetching listing:", error);
+    showToast({ message: "Not able to find listing, please try again...", type: "error" });
   }
 }
 

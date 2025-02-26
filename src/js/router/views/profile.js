@@ -1,3 +1,4 @@
+import { showToast } from "../../global/utils/alert";
 import { authGuard } from "../../global/utils/authGuard";
 import { deleteListing } from "../../listing/delete";
 import { readListingsByUser } from "../../listing/read";
@@ -11,7 +12,7 @@ async function displayUserProfile() {
     const profile = response.data;
 
     if (!profile) {
-      console.error("Profile not found");
+      showToast({ message: "Profile not found", type: "error" });
       return;
     }
 
@@ -39,14 +40,14 @@ async function displayUserProfile() {
     profileTotalWins.textContent = `Total wins: ${profile._count?.wins ?? 0}`;
 
   } catch (error) {
-    console.error("Error fetching profile:", error);
+    showToast({ message: "Error fetching profile: " + error.message, type: "error" });
   }
 }
 
 async function displayProfileListings() {
   const username = localStorage.getItem("username");
   if (!username) {
-    console.error("No username found in localStorage.");
+    showToast({ message: "No username found", type: "error" });
     return;
   }
 
@@ -62,7 +63,7 @@ async function displayProfileListings() {
       listingContainer.appendChild(listingElement);
     });
   } catch (error) {
-    console.error("Error displaying listings by user:", error);
+    showToast({ message: "Error displaying listings: " + error.message, type: "error" });
   }
 }
 

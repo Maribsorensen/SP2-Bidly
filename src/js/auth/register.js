@@ -1,12 +1,11 @@
 import { API_AUTH_REGISTER } from "../global/constants";
+import { showToast } from "../global/utils/alert";
 import { apiRequest } from "../global/utils/apiRequest";
 
-// Get api from global call, insert needed data
 export function register(data) {
   return apiRequest(API_AUTH_REGISTER, "POST", data);
 };
 
-// Function when login form is used
 export async function onRegister(event) {
   event.preventDefault();
 
@@ -17,7 +16,6 @@ export async function onRegister(event) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
 
-  // Disable form elements to prevent multiple calls
   fieldset.disabled = true;
   button.disabled = true;
   button.textContent = "Registering...";
@@ -25,14 +23,12 @@ export async function onRegister(event) {
   try {
     const response = await register(data);
 
-    // Redirect after a delay, add toaster here when function is made
     setTimeout(() => {
       window.location.href = "/auth/login/";
     }, 1000);
   } catch (error) {
-    console.error("Registration error:", error.message || "An error occurred during registration.");
+    showToast({ message: "Registration error: " + error.message, type: "error" });
   } finally {
-    // Re-enable form elements
     fieldset.disabled = false;
     button.disabled = false;
     button.textContent = originalButtonText;

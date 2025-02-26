@@ -22,12 +22,12 @@ export function setLogoutListener() {
   if (logoutDesktop) {
     logoutDesktop.addEventListener("click", handleLogoutClick);
   } else {
-    console.error("Desktop Logout button not found");
+    showToast({ message: "Not able to logout, please try again...", type: "error" });
   }
 
   if (logoutMobile) {
     logoutMobile.addEventListener("click", handleLogoutClick);
   } else {
-    console.error("Mobile Logout button not found");
+    showToast({ message: "Not able to logout, please try again...", type: "error" });
   }
 }

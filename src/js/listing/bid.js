@@ -1,11 +1,12 @@
 import { API_AUCTION_LISTINGS, API_AUCTION_PROFILES } from "../global/constants";
+import { showToast } from "../global/utils/alert";
 import { apiRequest } from "../global/utils/apiRequest";
 import { readSingleListing } from "./read";
 
 export async function bids() {
   const listingId = new URLSearchParams(window.location.search).get("id");
   if (!listingId) {
-    console.error("No listing ID found in URL");
+    showToast({ message: "Listing ID not found", type: "error" });
     return;
   }
 
@@ -26,12 +27,9 @@ export async function bids() {
     if (latestBidElement && endsAtElement) {
       latestBidElement.innerHTML = `Latest bid: <strong>${highestBid} Credits</strong>`;
       endsAtElement.innerHTML = `Bidding ends at: <span>${formattedEndDate}</span>`;
-    } else {
-      console.error("Missing bid-related elements in the HTML.");
     }
-
   } catch (error) {
-    console.error("Error fetching bids:", error);
+    showToast({ message: "Error fetching bids: " + error.message, type: "error" });
   }
 }
 
@@ -58,7 +56,7 @@ export async function handleBidSubmission(event) {
   const bidAmount = Number(bidInput?.value);
 
   if (!listingId || !bidAmount || bidAmount <= 0) {
-    console.error("Invalid bid amount");
+    showToast({ message: "Invalid bid amount", type: "warning" });
     return;
   }
 
@@ -74,7 +72,7 @@ export async function handleBidSubmission(event) {
 
     const user = localStorage.getItem("username");
     if (!user) {
-      console.error("User not logged in");
+      showToast({ message: "You must be logged in to bid on this listing", type: "error" });
       return;
     }
 
@@ -82,20 +80,21 @@ export async function handleBidSubmission(event) {
     const userCredits = userResponse?.data?.credits ?? 0;
 
     if (bidAmount <= highestBid) {
-      alert("Your bid must be higher than the current highest bid.");
+      showToast({ message: "You bid must be higher than the current bid", type: "warning" });
       return;
     }
     if (bidAmount > userCredits) {
-      alert("Insufficient credits to place this bid.");
+      showToast({ message: "Insufficient credits to place this bid", type: "error" });
       return;
     }
 
     await apiRequest(`${API_AUCTION_LISTINGS}/${listingId}/bids`, "POST", { amount: bidAmount }, true);
+    showToast({ message: "Bid placed successfully!", type: "success" });
 
     bidInput.value = "";
     await bids();
 
   } catch (error) {
-    console.error("Error placing bid:", error);
+    showToast({ message: "Error placing bid: " + error.message, type: "error" });
   }
 }

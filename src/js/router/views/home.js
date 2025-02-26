@@ -1,3 +1,4 @@
+import { showToast } from "../../global/utils/alert";
 import { readListings } from "../../listing/read";
 
 export function createListingElement(listing) {
@@ -61,7 +62,7 @@ export async function displayListings() {
       listingsContainer.appendChild(listingElement);
     });
   } catch (error) {
-    console.error("error displaying listings:", error);
+    showToast({ message: "Error showing listings: " + error.message, type: "error" });
   }
 };
 

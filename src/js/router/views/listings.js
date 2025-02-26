@@ -1,3 +1,4 @@
+import { showToast } from "../../global/utils/alert";
 import { readListings } from "../../listing/read";
 
 export function createListingElement(listing) {
@@ -71,7 +72,7 @@ export async function displayListings(category = "", page = 1, append = false) {
       showMoreButton.style.display = "block";
     }
   } catch (error) {
-    console.error("Error displaying listings:", error);
+    showToast({ message: "Error displaying listings: " + error.message, type: "error" });
   }
 }
 
