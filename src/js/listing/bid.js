@@ -14,11 +14,26 @@ export async function bids() {
     const response = await readSingleListing(listingId);
     const listing = response?.data ?? {};
 
+    const currentTime = new Date();
+    const endDate = new Date(listing.endsAt);
+
+    if (currentTime > endDate) {
+      const bidForm = document.querySelector("form[name='bid-form']");
+      const expiredMessage = document.createElement("p");
+      expiredMessage.classList.add("text-center", "text-brand-cta", "font-paragraph", "text-lg");
+      expiredMessage.innerText = "The auction has ended. No more bids can be placed on this item.";
+
+      if (bidForm) {
+        bidForm.classList.add("hidden");
+        bidForm.parentElement.appendChild(expiredMessage);
+      }
+      return;
+    }
+
     const highestBid = listing.bids?.length
       ? Math.max(...listing.bids.map(bid => bid.amount))
       : 0;
 
-    const endDate = new Date(listing.endsAt);
     const formattedEndDate = endDate.toLocaleString();
 
     const latestBidElement = document.getElementById("latest-bid");
@@ -28,10 +43,12 @@ export async function bids() {
       latestBidElement.innerHTML = `Latest bid: <strong>${highestBid} Credits</strong>`;
       endsAtElement.innerHTML = `Bidding ends at: <span>${formattedEndDate}</span>`;
     }
+
   } catch (error) {
     showToast({ message: "Error fetching bids: " + error.message, type: "error" });
   }
 }
+
 
 export function checkUserStatus() {
   const user = localStorage.getItem("username");
