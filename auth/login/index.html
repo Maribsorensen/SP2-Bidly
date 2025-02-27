@@ -185,29 +185,35 @@
       </nav>
     </header>
     <main class="bg-slate-100 p-5">
-      <section class="m-4 flex w-3/5 mx-auto">
-        <div><img src="/Gavel.png" alt="" /></div>
-        <p class="font-paragraph text-2xl">
+      <section class="m-6 flex w-4/5 mx-auto justify-center gap-2">
+        <i class="fa-solid fa-gavel text-brand-main text-5xl"></i>
+        <p class="font-paragraph text-2xl text-center text-gray-800 mb-6">
           Log into your Bidly account to place listings and bid on quality items
         </p>
       </section>
       <section>
         <form name="login">
           <fieldset
-            class="container rounded-lg flex flex-col mx-auto justify-between gap-4 w-2/4"
+            class="container rounded-xl bg-white p-8 shadow-lg mx-auto w-full sm:w-3/4 md:w-2/4"
           >
-            <div class="flex flex-col">
-              <label for="email" class="font-paragraph text-lg">Email</label>
+            <div class="flex flex-col mb-6">
+              <label
+                for="email"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Email</label
+              >
               <input
                 id="email"
                 type="email"
                 name="email"
                 required
-                class="shadow-md"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
               />
             </div>
-            <div class="flex flex-col">
-              <label for="password" class="font-paragraph text-lg"
+            <div class="flex flex-col mb-6">
+              <label
+                for="password"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
                 >Password</label
               >
               <input
@@ -215,25 +221,29 @@
                 type="password"
                 name="password"
                 required
-                class="shadow-md"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
               />
             </div>
             <div class="text-center">
               <button
-                class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg w-fit"
+                class="bg-brand-main text-white font-semibold hover:bg-brand-mainhover py-3 px-6 rounded-lg transition duration-200 font-paragraph"
               >
                 Login
               </button>
             </div>
-            <p class="font-paragraph text-center">
+            <p class="text-center mt-4 text-gray-600 font-paragraph">
               Don't have an account?
-              <a href="/auth/register/">Register here!</a>
+              <a
+                href="/auth/register/"
+                class="font-semibold text-brand-cta hover:underline font-paragraph"
+                >Register here!</a
+              >
             </p>
           </fieldset>
         </form>
       </section>
     </main>
-    <footer class="bg-brand-banner py-5 px-20">
+    <footer class="bg-brand-banner py-5 px-10 md:px-20">
       <div class="flex justify-between">
         <a href="/"
           ><i

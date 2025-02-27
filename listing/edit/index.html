@@ -213,13 +213,19 @@
             id="description"
             class="shadow-md mb-4"
           ></textarea>
-          <label for="mediaUrl" class="font-paragraph text-lg">Media url</label>
-          <input
-            type="text"
-            name="mediaUrl"
-            id="mediaUrl"
-            class="shadow-md mb-4"
-          />
+          <label for="mediaUrls" class="font-paragraph text-lg"
+            >Media URLs</label
+          >
+          <div id="mediaInputs" class="mb-2">
+            <input type="text" name="mediaUrls[]" class="shadow-md mb-2" />
+          </div>
+          <button
+            type="button"
+            id="addMedia"
+            class="bg-gray-300 p-1 rounded font-paragraph w-fit mb-4"
+          >
+            + Add More
+          </button>
           <label for="mediaAlt" class="font-paragraph text-lg"
             >Short media Description</label
           >
@@ -237,7 +243,7 @@
         </fieldset>
       </form>
     </main>
-    <footer class="bg-brand-banner py-5 px-20">
+    <footer class="bg-brand-banner py-5 px-10 md:px-20">
       <div class="flex justify-between">
         <a href="/"
           ><i

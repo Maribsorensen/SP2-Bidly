@@ -20,7 +20,6 @@ export async function loadListingData() {
     }
 
     const listing = response.data;
-
     const form = document.forms.editListing;
     if (!form) {
       showToast({ message: "Edit form not found on the page", type: "error" });
@@ -31,8 +30,26 @@ export async function loadListingData() {
     form.tags.value = listing.tags ? listing.tags.join(", ") : "";
     form.endsAt.value = listing.endsAt ? listing.endsAt.slice(0, 16) : "";
     form.description.value = listing.description || "";
-    form.mediaUrl.value = listing.media && listing.media.length > 0 ? listing.media[0].url : "";
-    form.mediaAlt.value = listing.media && listing.media.length > 0 ? listing.media[0].alt : "";
+
+    const mediaInputsContainer = document.getElementById("mediaInputs");
+    mediaInputsContainer.innerHTML = "";
+
+    if (listing.media && listing.media.length > 0) {
+      listing.media.forEach((media) => {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.name = "mediaUrls[]";
+        input.classList.add("shadow-md", "m-2");
+        input.value = media.url || "";
+        mediaInputsContainer.appendChild(input);
+      });
+    } else {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = "mediaUrls[]";
+      input.classList.add("shadow-md", "mb-2");
+      mediaInputsContainer.appendChild(input);
+    }
 
   } catch (error) {
     showToast({ message: "Error loading listing: " + error.message, type: "error" });
@@ -54,18 +71,22 @@ export async function onEditListing(event) {
   const tags = form.tags.value
     .split(",")
     .map(tag => tag.trim().toLowerCase())
-    .filter(tag => tag);
+    .filter(tag => "");
   const endsAt = form.endsAt.value;
   const description = form.description.value;
-  const mediaUrl = form.mediaUrl.value;
-  const mediaAlt = form.mediaAlt.value;
+
+  const mediaInputs = document.querySelectorAll("input[name='mediaUrls[]']");
+  const media = Array.from(mediaInputs)
+    .map(input => input.value.trim())
+    .filter(url => url)
+    .map(url => ({ url, alt: "Image" }));
 
   const updatedListingData = {
     title,
     tags,
     endsAt,
     description,
-    media: mediaUrl ? [{ url: mediaUrl, alt: mediaAlt || "Image" }] : [],
+    media,
   };
 
   try {
