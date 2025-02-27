@@ -1,3 +1,11 @@
+/**
+ * Creates a loading indicator with a customizable text and size.
+ * The indicator is an animated SVG spinner with a text label.
+ * 
+ * @param {string} [text="Loading..."] - The text to display next to the loading spinner. Default is "Loading...".
+ * @param {number} [size=80] - The size of the spinner in pixels. Default is 80px.
+ * @returns {HTMLElement} - The container element containing the SVG spinner and the text.
+ */
 export function createLoadingIndicator(text = "Loading...", size = 80) {
 
   const container = document.createElement("div");

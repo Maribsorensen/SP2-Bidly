@@ -185,38 +185,60 @@
       </nav>
     </header>
     <main class="bg-slate-100 p-5">
-      <h1 class="font-paragraph justify-self-center text-2xl text-gray-800">
-        Update your profile
+      <h1 class="font-paragraph text-3xl text-gray-900 text-center mb-6">
+        Update Your Profile
       </h1>
       <form name="editProfile">
         <fieldset
-          class="container rounded-lg flex flex-col mx-auto justify-between w-2/4"
+          class="container rounded-lg flex flex-col mx-auto w-full md:w-3/4 lg:w-2/4 p-6 bg-white shadow-md"
         >
-          <label for="bio" class="font-paragraph text-lg">Bio</label>
-          <textarea name="bio" id="bio" class="shadow-md mb-4"></textarea>
-          <label for="avatarUrl" class="font-paragraph text-lg"
-            >Avatar url</label
-          >
-          <input
-            type="text"
-            name="avatarUrl"
-            id="avatarUrl"
-            class="shadow-md mb-4"
-          />
-          <label for="avatarAlt" class="font-paragraph text-lg"
-            >Avatar Description</label
-          >
-          <input
-            type="text"
-            name="avatarAlt"
-            id="avatarAlt"
-            class="shadow-md mb-4"
-          />
-          <button
-            class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg w-fit mx-auto"
-          >
-            Update profile
-          </button>
+          <div class="mb-6">
+            <label
+              for="bio"
+              class="font-paragraph text-lg text-gray-800 block mb-2"
+              >Bio</label
+            >
+            <textarea
+              name="bio"
+              id="bio"
+              rows="4"
+              class="shadow-md w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-main"
+            ></textarea>
+          </div>
+          <div class="mb-6">
+            <label
+              for="avatarUrl"
+              class="font-paragraph text-lg text-gray-800 block mb-2"
+              >Avatar URL</label
+            >
+            <input
+              type="text"
+              name="avatarUrl"
+              id="avatarUrl"
+              class="shadow-md w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-main"
+            />
+          </div>
+          <div class="mb-6">
+            <label
+              for="avatarAlt"
+              class="font-paragraph text-lg text-gray-800 block mb-2"
+              >Avatar Description</label
+            >
+            <input
+              type="text"
+              name="avatarAlt"
+              id="avatarAlt"
+              class="shadow-md w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-main"
+            />
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="bg-brand-main text-white hover:bg-brand-mainhover py-3 px-6 rounded-lg transition duration-200 font-paragraph"
+            >
+              Update Profile
+            </button>
+          </div>
         </fieldset>
       </form>
     </main>

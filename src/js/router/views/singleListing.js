@@ -3,6 +3,10 @@ import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
 import { bids, checkUserStatus, handleBidSubmission } from "../../listing/bid";
 import { readSingleListing } from "../../listing/read";
 
+/**
+ * Fetches and displays a listing based on the provided listing ID from the URL query parameters.
+ * Handles loading, error states, and dynamic content rendering.
+ */
 async function displayListing() {
   const params = new URLSearchParams(window.location.search);
   const listingId = params.get("id");
@@ -98,6 +102,12 @@ async function displayListing() {
   }
 }
 
+/**
+ * Handles the form submission for placing a bid.
+ * Prevents the default form submission and calls `handleBidSubmission`.
+ * 
+ * @param {Event} event - The form submit event.
+ */
 const bidForm = document.querySelector("form[name='bid-form']");
 if (bidForm) {
   bidForm.addEventListener("submit", async (event) => {
@@ -106,8 +116,9 @@ if (bidForm) {
   });
 }
 
+/**
+ * Calls the functions related to bids and user status checks.
+ */
 bids();
 checkUserStatus();
 displayListing();
-
-

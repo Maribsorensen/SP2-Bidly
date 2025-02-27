@@ -2,6 +2,14 @@ import { API_AUCTION_LISTINGS } from "../global/constants";
 import { showToast } from "../global/utils/alert";
 import { apiRequest } from "../global/utils/apiRequest";
 
+/**
+ * Loads the data of a specific auction listing and populates the edit form with it.
+ * This function retrieves the listing data by its ID from the URL query parameters, 
+ * and populates the edit form fields with the listing's existing details.
+ * It also handles cases where the data is unavailable or the listing ID is missing.
+ * 
+ * @returns {Promise<void>} - A promise that resolves when the listing data has been loaded and the form has been populated.
+ */
 export async function loadListingData() {
   const urlParams = new URLSearchParams(window.location.search);
   const listingId = urlParams.get("id");
@@ -56,6 +64,15 @@ export async function loadListingData() {
   }
 }
 
+/**
+ * Handles the form submission to update an auction listing.
+ * This function is triggered when the edit form is submitted. It collects the 
+ * updated values from the form, including the title, tags, end date, description, 
+ * and media URLs, and sends them to the server to update the listing.
+ * 
+ * @param {Event} event - The submit event triggered by the form submission.
+ * @returns {Promise<void>} - A promise that resolves when the listing has been updated successfully.
+ */
 export async function onEditListing(event) {
   event.preventDefault();
   const form = event.target;
@@ -71,7 +88,7 @@ export async function onEditListing(event) {
   const tags = form.tags.value
     .split(",")
     .map(tag => tag.trim().toLowerCase())
-    .filter(tag => "");
+    .filter(tag => tag); // Filter out empty tags
   const endsAt = form.endsAt.value;
   const description = form.description.value;
 
@@ -79,7 +96,7 @@ export async function onEditListing(event) {
   const media = Array.from(mediaInputs)
     .map(input => input.value.trim())
     .filter(url => url)
-    .map(url => ({ url, alt: "Image" }));
+    .map(url => ({ url, alt: "Image" })); // Prepare media URL objects
 
   const updatedListingData = {
     title,
@@ -93,7 +110,7 @@ export async function onEditListing(event) {
     await apiRequest(`${API_AUCTION_LISTINGS}/${listingId}`, "PUT", updatedListingData, true);
     showToast({ message: "Listing updated successfully!", type: "success" });
     setTimeout(() => {
-      window.location.href = `/profile/`;
+      window.location.href = `/profile/`; // Redirect to profile page after success
     }, 2000);
   } catch (error) {
     showToast({ message: "Failed to update listing: " + error.message, type: "error" });

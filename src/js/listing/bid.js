@@ -3,6 +3,13 @@ import { showToast } from "../global/utils/alert";
 import { apiRequest } from "../global/utils/apiRequest";
 import { readSingleListing } from "./read";
 
+/**
+ * Fetches the current bid details of a listing and updates the UI.
+ * It displays the highest bid and the end date of the auction.
+ * If the auction has ended, it hides the bid form and displays an "Auction Ended" message.
+ * 
+ * @returns {Promise<void>} - Returns a promise that resolves once the bid details have been updated.
+ */
 export async function bids() {
   const listingId = new URLSearchParams(window.location.search).get("id");
   if (!listingId) {
@@ -49,7 +56,12 @@ export async function bids() {
   }
 }
 
-
+/**
+ * Checks whether a user is logged in and adjusts the visibility of the bid form accordingly.
+ * If the user is logged in, the bid form is shown, and the "no user" message is hidden.
+ * 
+ * @returns {void} - This function does not return anything; it only adjusts the UI based on the user's login status.
+ */
 export function checkUserStatus() {
   const user = localStorage.getItem("username");
   const noUserMessage = document.getElementById("no-user");
@@ -64,6 +76,14 @@ export function checkUserStatus() {
   }
 }
 
+/**
+ * Handles the bid submission process. It validates the bid amount, checks if the user has enough credits,
+ * and submits the bid if all conditions are met.
+ * 
+ * @param {Event} event - The submit event from the bid form.
+ * 
+ * @returns {Promise<void>} - A promise that resolves once the bid submission process is complete.
+ */
 export async function handleBidSubmission(event) {
   event.preventDefault();
 
@@ -78,10 +98,8 @@ export async function handleBidSubmission(event) {
   }
 
   try {
-
     const response = await readSingleListing(listingId);
     const listing = response?.data ?? {};
-
 
     const highestBid = listing.bids?.length
       ? Math.max(...listing.bids.map(bid => bid.amount))

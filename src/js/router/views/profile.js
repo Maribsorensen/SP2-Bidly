@@ -5,6 +5,10 @@ import { deleteListing } from "../../listing/delete";
 import { readListingsByUser } from "../../listing/read";
 import { readProfile } from "../../profile/read";
 
+/**
+ * Displays the user profile information by fetching data from the backend.
+ * It also handles loading, error, and missing profile cases.
+ */
 async function displayUserProfile() {
   const username = localStorage.getItem("username");
   const profileContainer = document.getElementById("profile-information");
@@ -55,6 +59,11 @@ async function displayUserProfile() {
   }
 }
 
+/**
+ * Displays a list of the user's listings.
+ * It fetches the listings from the backend and renders them dynamically on the page.
+ * If no username is found, an error message is shown.
+ */
 async function displayProfileListings() {
   const username = localStorage.getItem("username");
   if (!username) {
@@ -63,7 +72,6 @@ async function displayProfileListings() {
   }
 
   try {
-
     const listingData = await readListingsByUser(username);
 
     const listingContainer = document.getElementById("profile-listings");
@@ -78,6 +86,18 @@ async function displayProfileListings() {
   }
 }
 
+/**
+ * Creates a DOM element for a listing with information like image, title, seller, and buttons for editing or deleting.
+ * 
+ * @param {Object} listing - The listing data object to be displayed.
+ * @param {string} listing.id - The ID of the listing.
+ * @param {string} listing.title - The title of the listing.
+ * @param {Object[]} listing.media - An array of media objects for the listing.
+ * @param {Object} listing.seller - The seller of the listing.
+ * @param {string} listing.seller.name - The seller's name.
+ * 
+ * @returns {HTMLElement} The HTML element representing the listing.
+ */
 export function createProfileListingElement(listing) {
   const listingElement = document.createElement("div");
   listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md", "justify-between", "p-2");
@@ -97,7 +117,6 @@ export function createProfileListingElement(listing) {
     listingImage.classList.add("w-full", "h-60", "object-cover", "rounded-md");
     listingImageContainer.appendChild(listingImage);
   } else {
-
     const placeholderImage = document.createElement("img");
     placeholderImage.setAttribute("src", "path_to_placeholder_image.jpg");
     placeholderImage.setAttribute("alt", "No image available");

@@ -1,3 +1,11 @@
+/**
+ * Updates the navigation links based on the user's login status.
+ * - If the user is logged in (i.e., `username` exists in localStorage), it shows the profile and logout links, and hides the login and register links.
+ * - If the user is not logged in, it shows the login and register links and hides the profile and logout links.
+ * 
+ * This function checks the localStorage for a `username` key to determine whether the user is logged in.
+ * 
+ */
 export function updateNav() {
   const username = localStorage.getItem("username");
 

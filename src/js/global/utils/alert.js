@@ -1,3 +1,15 @@
+/**
+ * Displays a toast message on the screen. The toast can be of different types (success, error, warning, info),
+ * and it can also display a confirmation dialog.
+ *
+ * @param {Object} options - The configuration object for the toast.
+ * @param {string} options.message - The message to display in the toast.
+ * @param {("success" | "error" | "warning" | "info" | "confirm")} [options.type="info"] - The type of the toast (success, error, warning, info, or confirm). Default is "info".
+ * @param {number} [options.duration=3000] - The duration (in milliseconds) for which the toast will be displayed. Default is 3000 ms (3 seconds).
+ * @param {function} [options.onConfirm] - The callback function to be executed when the user confirms a "confirm" type toast.
+ * @param {function} [options.onCancel] - The callback function to be executed when the user cancels a "confirm" type toast.
+ * 
+ */
 export function showToast({ message, type = "info", duration = 3000, onConfirm, onCancel }) {
   const typeStyles = {
     success: "bg-green-200 text-green-800 font-paragraph",
