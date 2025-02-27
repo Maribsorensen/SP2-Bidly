@@ -185,15 +185,32 @@
       </nav>
     </header>
     <main class="bg-slate-100 p-5">
-      <section class="flex shadow-md mx-auto md:w-3/4">
-        <div class="w-2/4">
-          <img src="" alt="" class="w-full h-auto" />
+      <section
+        class="flex flex-col md:flex-row items-center shadow-lg bg-gradient-to-r from-brand-banner to-slate-300 p-6 rounded-lg mx-auto md:w-3/4"
+      >
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img
+            src="src/assets/Hero.png"
+            alt="Auction Hero Image"
+            class="w-4/5 md:w-full h-auto rounded-lg shadow-md"
+          />
         </div>
-        <p class="w-2/4 m-auto pl-2 font-paragraph text-xl">
-          At Bidly you can find all your auction needs. List your own items, bid
-          on others. You'll get 1000 credits just for creating an account with
-          us. Start your auction journey today!
-        </p>
+        <div class="w-full md:w-1/2 text-center md:text-left px-4">
+          <h1 class="font-paragraph text-3xl text-gray-900 mb-4">
+            Welcome to Bidly!
+          </h1>
+          <p class="font-paragraph text-lg text-gray-800 leading-relaxed">
+            At Bidly, you can find all your auction needs. List your own items,
+            bid on others, and start winning today! Get
+            <span class="font-bold">1000 credits</span> just for signing up!
+          </p>
+          <a
+            href="/register"
+            class="mt-4 inline-block bg-brand-main hover:bg-brand-mainhover text-white py-3 px-6 rounded-lg transition duration-200 shadow-md font-paragraph"
+          >
+            Get Started
+          </a>
+        </div>
       </section>
       <section>
         <h2
