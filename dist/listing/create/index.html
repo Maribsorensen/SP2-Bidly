@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="List your item for auction on Bidly. Fill in the boxes, and reach thousands of potential buyers."
+    />
+    <title>Create an Auction | Bidly - Sell to the Highest Bidder</title>
+    <link rel="icon" type="image/png" href="/SP2-Bidly/assets/Gavel-DvNIE8H6.png" />
+    <script type="module" crossorigin src="/SP2-Bidly/assets/main-C6zY-29k.js"></script>
+    <link rel="stylesheet" crossorigin href="/SP2-Bidly/assets/main-DbtDTKG3.css">
+  </head>
+  <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
+    <header class="bg-brand-banner">
+      <nav class="container mx-auto px-2">
+        <div class="flex justify-between gap-2 items-center py-3 flex-nowrap">
+          <div class="flex items-center space-x-2">
+            <a href="/" class="text-brand-main font-heading text-4xl">Bidly</a>
+            <i class="fa-solid fa-gavel text-brand-main text-3xl"></i>
+          </div>
+          <div class="relative group">
+            <button
+              class="text-white text-lg font-paragraph flex items-center space-x-1 hover:text-brand-main transition duration-200 category-button"
+            >
+              <span>Categories</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md hidden category-menu z-50"
+            >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >All</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Art</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Fashion</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Jewelry</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Books</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Vintage</a
+              >
+            </div>
+          </div>
+          <div
+            class="hidden md:flex items-center space-x-6 flex-nowrap w-full justify-between"
+          >
+            <form action="/listing/" method="GET" class="flex w-full max-w-lg">
+              <input
+                type="text"
+                name="category"
+                placeholder="Search for items..."
+                class="search-input w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-brand-main font-paragraph"
+              />
+              <button
+                type="submit"
+                class="bg-brand-main px-4 py-2 text-white rounded-r-md hover:shadow-lg"
+              >
+                <i class="fa-solid fa-search"></i>
+              </button>
+            </form>
+            <div class="flex items-center space-x-6 whitespace-nowrap">
+              <a
+                href="/"
+                class="text-white text-lg hover:text-brand-main transition font-paragraph"
+                >Home</a
+              >
+              <a
+                href="/profile/"
+                class="text-brand-main text-lg hover:text-white transition"
+                ><i class="fa-solid fa-user"></i
+              ></a>
+              <div class="flex space-x-4">
+                <a
+                  href="/auth/login/"
+                  class="text-white text-lg hover:text-brand-main transition font-paragraph"
+                  >Login</a
+                >
+                <a
+                  href="/auth/register/"
+                  class="text-white text-lg hover:text-brand-main transition font-paragraph"
+                  >Register</a
+                >
+              </div>
+              <button
+                id="logoutButton"
+                class="text-white bg-brand-cta text-lg hover:font-semibold hover:shadow-lg transition rounded-md px-2 font-paragraph"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+          <div class="flex md:hidden items-center">
+            <button id="hamburger-button" class="text-white">
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 6h18M3 12h18M3 18h18"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="hidden" id="hamburger-menu">
+          <form action="/listing/" method="GET" class="flex w-full">
+            <input
+              type="text"
+              name="category"
+              placeholder="Search for items..."
+              class="search-input w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-brand-main font-paragraph"
+            />
+            <button
+              type="submit"
+              class="bg-brand-main px-4 py-2 text-white rounded-r-md hover:shadow-lg"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </form>
+          <ul class="flex flex-col space-y-2 mt-4 items-center">
+            <li>
+              <a
+                href="/"
+                class="block text-white hover:text-brand-main font-paragraph"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="/profile/"
+                class="text-brand-main text-lg hover:text-white transition"
+                ><i class="fa-solid fa-user"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="/auth/login/"
+                class="block text-white hover:text-brand-main font-paragraph"
+                >Login</a
+              >
+            </li>
+            <li>
+              <a
+                href="/auth/register/"
+                class="block text-white hover:text-brand-main font-paragraph"
+                >Register</a
+              >
+            </li>
+            <li>
+              <button
+                id="logoutButtonMobile"
+                class="text-white bg-brand-cta text-lg hover:font-semibold hover:shadow-lg transition rounded-md px-2 font-paragraph mb-2"
+              >
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="bg-slate-100 p-5">
+      <section class="m-6 flex flex-col items-center">
+        <i class="fa-solid fa-gavel text-brand-main text-5xl mb-3"></i>
+        <h1 class="font-paragraph text-3xl font-bold text-gray-800 text-center">
+          Create a New Listing
+        </h1>
+      </section>
+      <section>
+        <form name="createListing">
+          <fieldset
+            class="container bg-white p-8 rounded-xl shadow-lg mx-auto w-full sm:w-3/4 md:w-2/4"
+          >
+            <div class="flex flex-col mb-6">
+              <label
+                for="title"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Title</label
+              >
+              <input
+                type="text"
+                name="title"
+                id="title"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="tags"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Tags (comma-separated)</label
+              >
+              <input
+                type="text"
+                name="tags"
+                id="tags"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="endsAt"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Listing End-Time</label
+              >
+              <input
+                type="datetime-local"
+                name="endsAt"
+                id="endsAt"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="description"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Description</label
+              >
+              <textarea
+                name="description"
+                id="description"
+                rows="4"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              ></textarea>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="mediaUrls"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Media URLs</label
+              >
+              <div id="mediaInputs">
+                <input
+                  type="text"
+                  name="mediaUrls[]"
+                  class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main mb-2"
+                  required
+                />
+              </div>
+              <button
+                type="button"
+                id="addMedia"
+                class="bg-brand-main text-white font-semibold hover:bg-brand-mainhover py-2 px-4 rounded-lg transition duration-200 w-fit mt-2 font-paragraph"
+              >
+                + Add More
+              </button>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="mediaAlt"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Short Media Description</label
+              >
+              <input
+                type="text"
+                name="mediaAlt"
+                id="mediaAlt"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="text-center">
+              <button
+                class="bg-brand-main text-white font-semibold hover:bg-brand-mainhover py-3 px-6 rounded-lg transition duration-200 font-paragraph"
+              >
+                Create Listing
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+    <footer class="bg-brand-banner py-5 px-10 md:px-20">
+      <div class="flex justify-between">
+        <a href="/"
+          ><i
+            class="fa-solid fa-gavel text-brand-main text-3xl hover:text-white"
+          ></i
+        ></a>
+        <div>
+          <a
+            href="https://www.tiktok.com/"
+            class="text-brand-cta text-2xl hover:text-white transition"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/"
+            class="text-brand-cta text-2xl hover:text-white transition"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/"
+            class="text-brand-cta text-2xl hover:text-white transition"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </div>
+      </div>
+      <p class="font-paragraph text-white text-lg justify-self-center">
+        &copy;Bidly
+      </p>
+    </footer>
+  </body>
+</html>
