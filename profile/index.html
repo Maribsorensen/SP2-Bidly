@@ -185,53 +185,59 @@
       </nav>
     </header>
     <main class="bg-slate-100 p-5">
-      <section id="profile-information">
-        <h1
-          id="profile-username"
-          class="font-paragraph text-2xl justify-self-center text-gray-800"
-        >
-          Username profile
-        </h1>
-        <div class="flex gap-4 flex-col md:flex-row md:justify-center">
-          <div class="w-2/12">
+      <section id="profile-information" class="p-6 bg-gradient-to-r from-brand-banner to-slate-300 rounded-lg shadow-lg">
+        <div class="text-center mb-6">
+          <h1 id="profile-username" class="font-paragraph text-3xl text-gray-900">
+            Username Profile
+          </h1>
+        </div>
+        <div class="flex flex-col items-center md:flex-row md:justify-center md:gap-8">
+          <div class="w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
             <img
               src="../Gavel.png"
-              alt=""
-              class="w-full h-auto rounded-full"
+              alt="Profile Avatar"
+              class="w-full h-full object-cover rounded-full shadow-lg border-4 border-gray-300"
               id="profile-avatar"
             />
           </div>
-          <div
-            class="flex flex-col gap-4 bg-white shadow-md h-fit my-auto p-2 md:w-2/5"
-          >
-            <p id="profile-bio" class="font-paragraph text-xl">Bio</p>
-            <p id="profile-credits" class="font-paragraph text-xl">Credits</p>
-            <p id="profile-total-listings" class="font-paragraph text-xl">
-              Total listings
+          <div class="bg-white shadow-md rounded-lg p-6 flex flex-col gap-4 w-full md:w-2/5">
+            <p id="profile-bio" class="font-paragraph text-lg text-gray-700">
+              Bio: <span class="font-paragraph text-gray-900">Your bio goes here...</span>
             </p>
-            <p id="profile-total-wins" class="font-paragraph text-xl">
-              Total wins
+            <p id="profile-credits" class="font-paragraph text-lg text-gray-700">
+              Credits: <span class="font-paragraph text-gray-900">1000</span>
+            </p>
+            <p id="profile-total-listings" class="font-paragraph text-lg text-gray-700">
+              Total Listings: <span class="font-paragraph text-gray-900">10</span>
+            </p>
+            <p id="profile-total-wins" class="font-paragraph text-lg text-gray-700">
+              Total Wins: <span class="font-paragraph text-gray-900">5</span>
             </p>
           </div>
-          <div class="my-auto flex flex-col gap-2">
+          <div class="flex flex-col gap-3 mt-4 md:mt-0">
             <a
               href="/listing/create/"
-              class="bg-brand-main hover:bg-brand-mainhover font-paragraph p-2 rounded-lg text-lg w-fit text-white"
-              >Create listing</a
+              class="bg-brand-main hover:bg-brand-mainhover text-white py-3 px-6 rounded-lg transition duration-200 shadow-md text-center font-paragraph text-lg"
             >
+              + Create Listing
+            </a>
             <a
               href="/profile/edit/"
-              class="bg-brand-main hover:bg-brand-mainhover font-paragraph p-2 rounded-lg text-lg w-fit text-white"
-              >Edit profile</a
+              class="bg-brand-main hover:bg-brand-mainhover text-white py-3 px-6 rounded-lg transition duration-200 shadow-md text-center font-paragraph text-lg"
             >
+              ✏️ Edit Profile
+            </a>
           </div>
         </div>
       </section>
-      <section></section>
-      <h2 class="font-paragraph text-2xl justify-self-center text-gray-800">
-        My listings
-      </h2>
-      <div id="profile-listings" class="grid grid-cols-3 gap-2"></div>
+      <section class="mt-10">
+        <h2 class="font-paragraph text-3xl text-gray-900 text-center">
+          My Listings
+        </h2>
+      <div
+        id="profile-listings"
+        class="grid grid-cols-2 md:grid-cols-3 gap-2"
+      ></div>
     </main>
     <footer class="bg-brand-banner py-5 px-10 md:px-20">
       <div class="flex justify-between">

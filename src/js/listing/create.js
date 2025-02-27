@@ -16,7 +16,7 @@ document.getElementById("addMedia").addEventListener("click", function () {
   const removeButton = document.createElement("button");
   removeButton.type = "button";
   removeButton.textContent = "Remove";
-  removeButton.classList.add("bg-brand-cta", "text-white", "p-1", "ml-2", "rounded");
+  removeButton.classList.add("bg-brand-cta", "text-white", "p-1", "ml-2", "rounded", "font-paragraph");
 
   removeButton.addEventListener("click", function () {
     mediaInputs.removeChild(inputGroup);

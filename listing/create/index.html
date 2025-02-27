@@ -185,65 +185,119 @@
       </nav>
     </header>
     <main class="bg-slate-100 p-5">
-      <h1 class="font-paragraph justify-self-center text-2xl">
-        Create a new listing
-      </h1>
-      <form name="createListing">
-        <fieldset
-          class="container rounded-lg flex flex-col mx-auto justify-between w-2/4"
-        >
-          <label for="title" class="font-paragraph text-lg">Title</label>
-          <input type="text" name="title" id="title" class="shadow-md mb-4" />
-          <label for="tags" class="font-paragraph text-lg"
-            >Tags (comma-separated):</label
+      <section class="m-6 flex flex-col items-center">
+        <i class="fa-solid fa-gavel text-brand-main text-5xl mb-3"></i>
+        <h1 class="font-paragraph text-3xl font-bold text-gray-800 text-center">
+          Create a New Listing
+        </h1>
+      </section>
+      <section>
+        <form name="createListing">
+          <fieldset
+            class="container bg-white p-8 rounded-xl shadow-lg mx-auto w-full sm:w-3/4 md:w-2/4"
           >
-          <input type="text" name="tags" id="tags" class="shadow-md mb-4" />
-          <label for="endsAt" class="font-paragraph text-lg"
-            >Listing end-time</label
-          >
-          <input
-            type="datetime-local"
-            name="endsAt"
-            id="endsAt"
-            class="shadow-md mb-4"
-          />
-          <label for="description" class="font-paragraph text-lg"
-            >Description</label
-          >
-          <textarea
-            name="description"
-            id="description"
-            class="shadow-md mb-4"
-          ></textarea>
-          <label for="mediaUrls" class="font-paragraph text-lg"
-            >Media URLs</label
-          >
-          <div id="mediaInputs" class="mb-2">
-            <input type="text" name="mediaUrls[]" class="shadow-md mb-2" />
-          </div>
-          <button
-            type="button"
-            id="addMedia"
-            class="bg-gray-300 p-1 rounded font-paragraph w-fit mb-4"
-          >
-            + Add More
-          </button>
-          <label for="mediaAlt" class="font-paragraph text-lg"
-            >Short media Description</label
-          >
-          <input
-            type="text"
-            name="mediaAlt"
-            id="mediaAlt"
-            class="shadow-md mb-4"
-          />
-          <button
-            class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover p-2 rounded-lg m-0 text-lg w-fit mx-auto"
-          >
-            Create listing
-          </button>
-        </fieldset>
-      </form>
+            <div class="flex flex-col mb-6">
+              <label
+                for="title"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Title</label
+              >
+              <input
+                type="text"
+                name="title"
+                id="title"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="tags"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Tags (comma-separated)</label
+              >
+              <input
+                type="text"
+                name="tags"
+                id="tags"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="endsAt"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Listing End-Time</label
+              >
+              <input
+                type="datetime-local"
+                name="endsAt"
+                id="endsAt"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="description"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Description</label
+              >
+              <textarea
+                name="description"
+                id="description"
+                rows="4"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              ></textarea>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="mediaUrls"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Media URLs</label
+              >
+              <div id="mediaInputs">
+                <input
+                  type="text"
+                  name="mediaUrls[]"
+                  class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main mb-2"
+                  required
+                />
+              </div>
+              <button
+                type="button"
+                id="addMedia"
+                class="bg-brand-main text-white font-semibold hover:bg-brand-mainhover py-2 px-4 rounded-lg transition duration-200 w-fit mt-2 font-paragraph"
+              >
+                + Add More
+              </button>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="mediaAlt"
+                class="font-semibold text-lg text-gray-700 font-paragraph"
+                >Short Media Description</label
+              >
+              <input
+                type="text"
+                name="mediaAlt"
+                id="mediaAlt"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                required
+              />
+            </div>
+            <div class="text-center">
+              <button
+                class="bg-brand-main text-white font-semibold hover:bg-brand-mainhover py-3 px-6 rounded-lg transition duration-200 font-paragraph"
+              >
+                Create Listing
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </section>
     </main>
     <footer class="bg-brand-banner py-5 px-10 md:px-20">
       <div class="flex justify-between">
