@@ -6,7 +6,7 @@ import { updateNav } from "../global/utils/updateNav.js";
 export default async function router(pathname = window.location.href) {
   switch (pathname) {
     case "/SP2-Bidly/":
-      await import("./views/home.js");
+      await import(`/SP2-Bidly/views/home.js`);
       break;
     case "/SP2-Bidly/auth/login/":
       await import("./views/login.js");
