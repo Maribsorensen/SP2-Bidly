@@ -19,7 +19,6 @@
             <a href="/" class="text-brand-main font-heading text-4xl">Bidly</a>
             <i class="fa-solid fa-gavel text-brand-main text-3xl"></i>
           </div>
-
           <div class="relative group">
             <button
               class="text-white text-lg font-paragraph flex items-center space-x-1 hover:text-brand-main transition duration-200 category-button"
@@ -65,12 +64,12 @@
           <div
             class="hidden md:flex items-center space-x-6 flex-nowrap w-full justify-between"
           >
-            <form action="/search" method="GET" class="flex w-full max-w-lg">
+            <form action="/listing/" method="GET" class="flex w-full max-w-lg">
               <input
                 type="text"
-                name="q"
+                name="category"
                 placeholder="Search for items..."
-                class="w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-brand-main font-paragraph"
+                class="search-input w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-brand-main font-paragraph"
               />
               <button
                 type="submit"

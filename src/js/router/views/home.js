@@ -53,18 +53,13 @@ export function createListingElement(listing) {
 
 export async function displayListings() {
   try {
-    // Show loading indicator
     const listingsContainer = document.getElementById("listings-container");
     const loadingIndicator = createLoadingIndicator("Loading listings...", 80);
-    listingsContainer.appendChild(loadingIndicator);  // Add loading indicator to the container
+    listingsContainer.appendChild(loadingIndicator);
 
-    // Fetch listings
     const listingsData = await readListings();
+    listingsContainer.innerHTML = "";
 
-    // Clear loading indicator
-    listingsContainer.innerHTML = "";  // Clear loading indicator
-
-    // Add fetched listings
     listingsData.data.forEach(listing => {
       const listingElement = createListingElement(listing);
       listingsContainer.appendChild(listingElement);
@@ -74,13 +69,6 @@ export async function displayListings() {
   }
 };
 
-document.querySelectorAll(".category-menu a").forEach((categoryLink) => {
-  categoryLink.addEventListener("click", (event) => {
-    event.preventDefault();
 
-    const selectedCategory = categoryLink.textContent.trim();
-    window.location.href = `/listing/?category=${encodeURIComponent(selectedCategory)}`;
-  });
-});
 
 displayListings();
