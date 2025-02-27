@@ -1,4 +1,5 @@
 import { showToast } from "../../global/utils/alert";
+import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
 import { bids, checkUserStatus, handleBidSubmission } from "../../listing/bid";
 import { readSingleListing } from "../../listing/read";
 
@@ -11,6 +12,15 @@ async function displayListing() {
     return;
   }
 
+  const listingContainer = document.getElementById("listing-description");
+  if (!listingContainer) {
+    showToast({ message: "Not able to show listing, please try again...", type: "error" });
+    return;
+  }
+
+  const loadingIndicator = createLoadingIndicator("Loading listing...", 80);
+  listingContainer.appendChild(loadingIndicator);
+
   try {
     const response = await readSingleListing(listingId);
     const listing = response.data;
@@ -21,12 +31,6 @@ async function displayListing() {
     }
 
     document.title = `${listing.title} | Bidly - Place Your Bid Now`;
-
-    const listingContainer = document.getElementById("listing-description");
-    if (!listingContainer) {
-      showToast({ message: "Not able to show listing, please try again...", type: "error" });
-      return;
-    }
 
     const imageContainer = listingContainer.querySelector("#image-container");
     const titleElement = listingContainer.querySelector("#listing-title");
@@ -40,7 +44,6 @@ async function displayListing() {
     categoryElement.textContent = `Categories: ${listing.tags}` || "Uncategorized";
 
     if (listing.media && listing.media.length > 0) {
-
       imageContainer.innerHTML = "";
       const images = listing.media.map((mediaItem, index) => {
         const img = document.createElement("img");
@@ -88,6 +91,10 @@ async function displayListing() {
     }
   } catch (error) {
     showToast({ message: "Not able to find listing, please try again...", type: "error" });
+  } finally {
+    if (loadingIndicator) {
+      loadingIndicator.remove();
+    }
   }
 }
 

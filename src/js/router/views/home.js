@@ -52,11 +52,18 @@ export function createListingElement(listing) {
 
 export async function displayListings() {
   try {
-    const listingsData = await readListings();
+    // Show loading indicator
     const listingsContainer = document.getElementById("listings-container");
+    const loadingIndicator = ("Loading listings...", 80);
+    listingsContainer.appendChild(loadingIndicator);  // Add loading indicator to the container
 
-    listingsContainer.innerHTML = "";
+    // Fetch listings
+    const listingsData = await readListings();
 
+    // Clear loading indicator
+    listingsContainer.innerHTML = "";  // Clear loading indicator
+
+    // Add fetched listings
     listingsData.data.forEach(listing => {
       const listingElement = createListingElement(listing);
       listingsContainer.appendChild(listingElement);
