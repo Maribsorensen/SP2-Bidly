@@ -19,8 +19,15 @@ export function setupCategoryDropdown() {
   document.querySelectorAll(".category-menu a").forEach((categoryLink) => {
     categoryLink.addEventListener("click", (event) => {
       event.preventDefault();
+
       const selectedCategory = categoryLink.textContent.trim();
-      window.location.href = `/listing/?category=${encodeURIComponent(selectedCategory)}`;
+
+      if (selectedCategory.toLowerCase() === "all") {
+        window.location.href = "/listing/";
+      } else {
+        window.location.href = `/listing/?category=${encodeURIComponent(selectedCategory)}`;
+      }
     });
   });
+
 }

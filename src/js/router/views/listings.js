@@ -102,7 +102,7 @@ function getQueryParam(param) {
 
 const urlCategory = getQueryParam("category") ? getQueryParam("category").toLowerCase() : "";
 
-const categoryName = urlCategory ? urlCategory.charAt(0).toUpperCase() + urlCategory.slice(1) : "Listings"; // Capitalize the first letter
+const categoryName = urlCategory ? urlCategory.charAt(0).toUpperCase() + urlCategory.slice(1) : "All"; // Capitalize the first letter
 const h1Element = document.querySelector("h1");
 if (h1Element) {
   h1Element.textContent = `${categoryName} Listings`;
