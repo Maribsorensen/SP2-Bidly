@@ -13,47 +13,101 @@
   </head>
   <body class="min-h-screen grid grid-rows-[auto_1fr_auto]">
     <header class="bg-brand-banner">
-      <nav class="container mx-auto px-4">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center">
+      <nav class="container mx-auto px-2">
+        <div class="flex justify-between gap-2 items-center py-3 flex-nowrap">
+          <div class="flex items-center space-x-2">
             <a href="/" class="text-brand-main font-heading text-4xl">Bidly</a>
-            <img
-              src="Gavel.png"
-              alt="Bidly Logo placeholder"
-              class="h-8 w-auto"
-            />
+            <i class="fa-solid fa-gavel text-brand-main text-3xl"></i>
           </div>
-          <div class="hidden md:flex items-center space-x-6">
-            <a
-              href="/"
-              class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
-              >Home</a
+          <div class="relative group">
+            <button
+              class="text-white text-lg font-paragraph flex items-center space-x-1 hover:text-brand-main transition duration-200 category-button"
             >
-            <a
-              href="/profile/"
-              class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
-              >My Profile</a
+              <span>Categories</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div
+              class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md hidden category-menu z-50"
             >
-            <div class="flex space-x-4">
               <a
-                href="/auth/login/"
-                id="loginLink"
-                class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
-                >Login</a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >All</a
               >
               <a
-                href="/auth/register/"
-                id="registerLink"
-                class="text-white font-paragraph text-lg hover:text-brand-main transition duration-200"
-                >Register</a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Art</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Fashion</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Jewelry</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Books</a
+              >
+              <a
+                href="/listing/"
+                class="block px-4 py-2 hover:bg-gray-200 font-paragraph"
+                >Vintage</a
               >
             </div>
-            <button
-              id="logoutButton"
-              class="text-white font-paragraph bg-brand-main p-8"
-            >
-              Logout
-            </button>
+          </div>
+          <div
+            class="hidden md:flex items-center space-x-6 flex-nowrap w-full justify-between"
+          >
+            <form action="/listing/" method="GET" class="flex w-full max-w-lg">
+              <input
+                type="text"
+                name="category"
+                placeholder="Search for items..."
+                class="search-input w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-brand-main font-paragraph"
+              />
+              <button
+                type="submit"
+                class="bg-brand-main px-4 py-2 text-white rounded-r-md hover:shadow-lg"
+              >
+                <i class="fa-solid fa-search"></i>
+              </button>
+            </form>
+            <div class="flex items-center space-x-6 whitespace-nowrap">
+              <a
+                href="/"
+                class="text-white text-lg hover:text-brand-main transition font-paragraph"
+                >Home</a
+              >
+              <a
+                href="/profile/"
+                class="text-white text-lg hover:text-brand-main transition"
+                ><i class="fa-solid fa-user"></i
+              ></a>
+              <div class="flex space-x-4">
+                <a
+                  href="/auth/login/"
+                  class="text-white text-lg hover:text-brand-main transition font-paragraph border-b-2 border-white"
+                  >Login</a
+                >
+                <a
+                  href="/auth/register/"
+                  class="text-white text-lg hover:text-brand-main transition font-paragraph"
+                  >Register</a
+                >
+              </div>
+              <button
+                id="logoutButton"
+                class="text-white bg-brand-cta text-lg hover:font-semibold hover:shadow-lg transition rounded-md px-2 font-paragraph"
+              >
+                Logout
+              </button>
+            </div>
           </div>
           <div class="flex md:hidden items-center">
             <button id="hamburger-button" class="text-white">
@@ -75,37 +129,54 @@
           </div>
         </div>
         <div class="hidden" id="hamburger-menu">
+          <form action="/listing/" method="GET" class="flex w-full">
+            <input
+              type="text"
+              name="category"
+              placeholder="Search for items..."
+              class="search-input w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-brand-main font-paragraph"
+            />
+            <button
+              type="submit"
+              class="bg-brand-main px-4 py-2 text-white rounded-r-md hover:shadow-lg"
+            >
+              <i class="fa-solid fa-search"></i>
+            </button>
+          </form>
           <ul class="flex flex-col space-y-2 mt-4 items-center">
             <li>
               <a
                 href="/"
-                class="block text-white font-paragraph hover:text-brand-main transition duration-200 border-b-2 border-white"
+                class="block text-white hover:text-brand-main font-paragraph"
                 >Home</a
               >
             </li>
             <li>
               <a
                 href="/profile/"
-                class="block text-white font-paragraph hover:text-brand-main transition duration-200"
-                >My Profile</a
-              >
+                class="text-white text-lg hover:text-brand-main transition"
+                ><i class="fa-solid fa-user"></i
+              ></a>
             </li>
             <li>
               <a
                 href="/auth/login/"
-                class="block text-white font-paragraph hover:text-brand-main transition duration-200"
+                class="block text-white hover:text-brand-main font-paragraph border-b-2 border-white"
                 >Login</a
               >
             </li>
             <li>
               <a
                 href="/auth/register/"
-                class="block text-white font-paragraph hover:text-brand-main transition duration-200"
+                class="block text-white hover:text-brand-main font-paragraph"
                 >Register</a
               >
             </li>
             <li>
-              <button id="logoutButtonMobile" class="text-white font-paragraph">
+              <button
+                id="logoutButtonMobile"
+                class="text-white bg-brand-cta text-lg hover:font-semibold hover:shadow-lg transition rounded-md px-2 font-paragraph mb-2"
+              >
                 Logout
               </button>
             </li>
