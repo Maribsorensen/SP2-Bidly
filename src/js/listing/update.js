@@ -92,7 +92,9 @@ export async function onEditListing(event) {
   try {
     await apiRequest(`${API_AUCTION_LISTINGS}/${listingId}`, "PUT", updatedListingData, true);
     showToast({ message: "Listing updated successfully!", type: "success" });
-    window.location.href = `/profile/`;
+    setTimeout(() => {
+      window.location.href = `/profile/`;
+    }, 2000);
   } catch (error) {
     showToast({ message: "Failed to update listing: " + error.message, type: "error" });
   }
