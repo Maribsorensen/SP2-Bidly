@@ -1,11 +1,21 @@
 import { showToast } from "../../global/utils/alert";
 import { authGuard } from "../../global/utils/authGuard";
+import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
 import { deleteListing } from "../../listing/delete";
 import { readListingsByUser } from "../../listing/read";
 import { readProfile } from "../../profile/read";
 
 async function displayUserProfile() {
   const username = localStorage.getItem("username");
+  const profileContainer = document.getElementById("profile-information");
+
+  if (!profileContainer) {
+    showToast({ message: "Profile container not found", type: "error" });
+    return;
+  }
+
+  const loadingIndicator = createLoadingIndicator("Loading profile...", 80);
+  profileContainer.appendChild(loadingIndicator);
 
   try {
     const response = await readProfile(username);
@@ -16,7 +26,6 @@ async function displayUserProfile() {
       return;
     }
 
-    const profileContainer = document.getElementById("profile-information");
     const profileUsername = profileContainer.querySelector("#profile-username");
     const profileAvatar = profileContainer.querySelector("#profile-avatar");
     const profileBio = profileContainer.querySelector("#profile-bio");
@@ -41,6 +50,8 @@ async function displayUserProfile() {
 
   } catch (error) {
     showToast({ message: "Error fetching profile: " + error.message, type: "error" });
+  } finally {
+    loadingIndicator.remove();
   }
 }
 

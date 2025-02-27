@@ -1,5 +1,6 @@
 import { showToast } from "../../global/utils/alert";
 import { readListings } from "../../listing/read";
+import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
 
 export function createListingElement(listing) {
   const listingElement = document.createElement("div");
@@ -54,7 +55,7 @@ export async function displayListings() {
   try {
     // Show loading indicator
     const listingsContainer = document.getElementById("listings-container");
-    const loadingIndicator = ("Loading listings...", 80);
+    const loadingIndicator = createLoadingIndicator("Loading listings...", 80);
     listingsContainer.appendChild(loadingIndicator);  // Add loading indicator to the container
 
     // Fetch listings

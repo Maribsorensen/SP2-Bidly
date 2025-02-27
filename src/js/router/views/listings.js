@@ -1,4 +1,5 @@
 import { showToast } from "../../global/utils/alert";
+import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
 import { readListings } from "../../listing/read";
 
 export function createListingElement(listing) {
@@ -50,9 +51,19 @@ export function createListingElement(listing) {
 };
 
 export async function displayListings(category = "", page = 1, append = false) {
+  const listingsContainer = document.getElementById("listings-container");
+
+  if (!listingsContainer) {
+    showToast({ message: "Listings container not found.", type: "error" });
+    return;
+  }
+
+  // Create and show loading indicator
+  const loadingIndicator = createLoadingIndicator("Loading listings...", 80);
+  listingsContainer.appendChild(loadingIndicator);
+
   try {
     const listingsData = await readListings(12, page, category);
-    const listingsContainer = document.getElementById("listings-container");
 
     if (!append) {
       listingsContainer.innerHTML = "";
@@ -78,6 +89,11 @@ export async function displayListings(category = "", page = 1, append = false) {
     }
   } catch (error) {
     showToast({ message: "Error displaying listings: " + error.message, type: "error" });
+  } finally {
+    // Remove loading indicator after fetching completes
+    if (loadingIndicator) {
+      loadingIndicator.remove();
+    }
   }
 }
 
