@@ -25,7 +25,7 @@ export function createListingElement(listing) {
 
   // Redirects user to the listing details page when clicked
   listingElement.addEventListener("click", () => {
-    window.location.href = `/listing/singleListing/?id=${listing.id}`;
+    window.location.href = `/listing/singlelisting/?id=${listing.id}`;
   });
 
   const listingImageContainer = document.createElement("div");

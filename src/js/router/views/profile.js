@@ -107,7 +107,7 @@ export function createProfileListingElement(listing) {
   listingElement.classList.add("flex", "flex-col", "gap-3", "text-center", "shadow-md", "justify-between", "p-2");
   listingElement.setAttribute("data-id", listing.id);
   listingElement.addEventListener("click", () => {
-    window.location.href = `/listing/singleListing/?id=${listing.id}`;
+    window.location.href = `/listing/singlelisting/?id=${listing.id}`;
   });
 
   const listingImageContainer = document.createElement("div");
