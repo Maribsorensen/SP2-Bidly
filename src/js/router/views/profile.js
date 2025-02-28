@@ -146,7 +146,7 @@ export function createProfileListingElement(listing) {
   if (username && listing.seller && listing.seller.name === username) {
     const editListingButton = document.createElement("button");
     editListingButton.textContent = "Edit listing";
-    editListingButton.classList.add("w-fit", "font-paragraph", "text-lg", "bg-brand-main", "hover:bg-brand-mainhover", "transition", "duration-200", "px-2", "rounded-md", "text-white", "mx-auto");
+    editListingButton.classList.add("w-fit", "font-paragraph", "text-lg", "bg-brand-main", "hover:bg-brand-mainhover", "transition", "duration-200", "px-2", "rounded-md", "mx-auto");
     editListingButton.addEventListener("click", (event) => {
       event.stopPropagation();
       window.location.href = `/listing/edit/?id=${listing.id}`;

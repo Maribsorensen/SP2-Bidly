@@ -71,7 +71,7 @@ async function displayListing() {
 
         const nextButton = document.createElement("button");
         nextButton.textContent = "Next";
-        nextButton.classList.add("absolute", "bottom-4", "right-4", "bg-brand-main", "text-white", "font-paragraph", "hover:bg-brand-mainhover", "p-2", "rounded", "w-fit");
+        nextButton.classList.add("absolute", "bottom-4", "right-4", "bg-brand-main", "font-paragraph", "hover:bg-brand-mainhover", "p-2", "rounded", "w-fit");
         nextButton.onclick = function () {
           images[currentImageIndex].classList.add("hidden");
           currentImageIndex = (currentImageIndex + 1) % images.length;
@@ -80,7 +80,7 @@ async function displayListing() {
 
         const prevButton = document.createElement("button");
         prevButton.textContent = "Prev";
-        prevButton.classList.add("absolute", "bottom-4", "left-4", "bg-brand-main", "text-white", "font-paragraph", "hover:bg-brand-mainhover", "p-2", "rounded", "w-fit");
+        prevButton.classList.add("absolute", "bottom-4", "left-4", "bg-brand-main", "font-paragraph", "hover:bg-brand-mainhover", "p-2", "rounded", "w-fit");
         prevButton.onclick = function () {
           images[currentImageIndex].classList.add("hidden");
           currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
