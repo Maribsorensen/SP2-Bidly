@@ -1,5 +1,9 @@
+import { setLogoutListener } from "../../auth/logout";
 import { showToast } from "../../global/utils/alert";
+import { setupCategoryDropdown } from "../../global/utils/categoryDropdown";
 import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
+import { toggleHamburgerMenu } from "../../global/utils/toggleHamburgerMenu";
+import { updateNav } from "../../global/utils/updateNav";
 import { bids, checkUserStatus, handleBidSubmission } from "../../listing/bid";
 import { readSingleListing } from "../../listing/read";
 
@@ -122,3 +126,8 @@ if (bidForm) {
 bids();
 checkUserStatus();
 displayListing();
+
+setLogoutListener();
+setupCategoryDropdown();
+toggleHamburgerMenu();
+updateNav();

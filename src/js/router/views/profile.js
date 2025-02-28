@@ -1,6 +1,10 @@
+import { setLogoutListener } from "../../auth/logout";
 import { showToast } from "../../global/utils/alert";
 import { authGuard } from "../../global/utils/authGuard";
+import { setupCategoryDropdown } from "../../global/utils/categoryDropdown";
 import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
+import { toggleHamburgerMenu } from "../../global/utils/toggleHamburgerMenu";
+import { updateNav } from "../../global/utils/updateNav";
 import { deleteListing } from "../../listing/delete";
 import { readListingsByUser } from "../../listing/read";
 import { readProfile } from "../../profile/read";
@@ -162,3 +166,7 @@ export function createProfileListingElement(listing) {
 displayProfileListings();
 displayUserProfile();
 authGuard();
+setLogoutListener();
+setupCategoryDropdown();
+toggleHamburgerMenu();
+updateNav();

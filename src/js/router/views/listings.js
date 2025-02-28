@@ -1,5 +1,9 @@
+import { setLogoutListener } from "../../auth/logout";
 import { showToast } from "../../global/utils/alert";
+import { setupCategoryDropdown } from "../../global/utils/categoryDropdown";
 import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
+import { toggleHamburgerMenu } from "../../global/utils/toggleHamburgerMenu";
+import { updateNav } from "../../global/utils/updateNav";
 import { readListings } from "../../listing/read";
 
 /**
@@ -179,3 +183,8 @@ document.getElementById("show-more-btn").addEventListener("click", () => {
   currentPage++;
   displayListings(currentCategory, currentPage, true);
 });
+
+setLogoutListener();
+setupCategoryDropdown();
+toggleHamburgerMenu();
+updateNav();

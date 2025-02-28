@@ -1,6 +1,10 @@
 import { showToast } from "../../global/utils/alert";
 import { readListings } from "../../listing/read";
 import { createLoadingIndicator } from "../../global/utils/loadingIndicator";
+import { setLogoutListener } from "../../auth/logout";
+import { setupCategoryDropdown } from "../../global/utils/categoryDropdown";
+import { toggleHamburgerMenu } from "../../global/utils/toggleHamburgerMenu";
+import { updateNav } from "../../global/utils/updateNav";
 
 /**
  * Creates a listing element for the user interface.
@@ -99,3 +103,7 @@ export async function displayListings() {
 };
 
 displayListings();
+setLogoutListener();
+setupCategoryDropdown();
+toggleHamburgerMenu();
+updateNav();

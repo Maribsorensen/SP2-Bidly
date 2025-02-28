@@ -1,4 +1,8 @@
+import { setLogoutListener } from "../../auth/logout";
 import { authGuard } from "../../global/utils/authGuard";
+import { setupCategoryDropdown } from "../../global/utils/categoryDropdown";
+import { toggleHamburgerMenu } from "../../global/utils/toggleHamburgerMenu";
+import { updateNav } from "../../global/utils/updateNav";
 import { loadProfileData, onEditProfile } from "../../profile/update";
 
 /**
@@ -28,3 +32,7 @@ form.addEventListener("submit", onEditProfile);
  * If the user is not authenticated, they may be redirected to the login page or denied access.
  */
 authGuard();
+setLogoutListener();
+setupCategoryDropdown();
+toggleHamburgerMenu();
+updateNav();
