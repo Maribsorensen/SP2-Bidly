@@ -191,100 +191,99 @@
           Edit Listing
         </h1>
       </section>
-      <section>
-        <form name="editListing">
-          <fieldset
-            class="container bg-white p-8 rounded-xl shadow-lg mx-auto w-full sm:w-3/4 md:w-2/4"
-          >
-            <div class="flex flex-col mb-6">
-              <label
-                for="title"
-                class="font-semibold text-lg text-gray-700 font-paragraph"
-                >Title</label
-              >
+      <form name="editListing">
+        <fieldset
+          class="container bg-white p-8 rounded-xl shadow-lg mx-auto w-full sm:w-3/4 md:w-2/4"
+        >
+          <div class="flex flex-col mb-6">
+            <label
+              for="title"
+              class="font-semibold text-lg text-gray-700 font-paragraph"
+              >Title</label
+            >
+            <input
+              type="text"
+              name="title"
+              id="title"
+              class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+            />
+          </div>
+          <div class="flex flex-col mb-6">
+            <label
+              for="tags"
+              class="font-semibold text-lg text-gray-700 font-paragraph"
+              >Tags (comma-separated)</label
+            >
+            <input
+              type="text"
+              name="tags"
+              id="tags"
+              class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+            />
+          </div>
+          <div class="flex flex-col mb-6">
+            <label
+              for="endsAt"
+              class="font-semibold text-lg text-gray-700 font-paragraph"
+              >Listing End-Time</label
+            >
+            <input
+              type="datetime-local"
+              name="endsAt"
+              id="endsAt"
+              class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+            />
+          </div>
+          <div class="flex flex-col mb-6">
+            <label
+              for="description"
+              class="font-semibold text-lg text-gray-700 font-paragraph"
+              >Description</label
+            >
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+            ></textarea>
+          </div>
+          <div class="flex flex-col mb-6">
+            <label
+              for="mediaUrls"
+              class="font-semibold text-lg text-gray-700 font-paragraph"
+              >Media URLs</label
+            >
+            <div id="mediaInputs">
               <input
                 type="text"
-                name="title"
-                id="title"
-                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+                name="mediaUrls[]"
+                id="mediaUrls"
+                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main mb-2"
               />
             </div>
-            <div class="flex flex-col mb-6">
-              <label
-                for="tags"
-                class="font-semibold text-lg text-gray-700 font-paragraph"
-                >Tags (comma-separated)</label
-              >
-              <input
-                type="text"
-                name="tags"
-                id="tags"
-                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
-              />
-            </div>
-            <div class="flex flex-col mb-6">
-              <label
-                for="endsAt"
-                class="font-semibold text-lg text-gray-700 font-paragraph"
-                >Listing End-Time</label
-              >
-              <input
-                type="datetime-local"
-                name="endsAt"
-                id="endsAt"
-                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
-              />
-            </div>
-            <div class="flex flex-col mb-6">
-              <label
-                for="description"
-                class="font-semibold text-lg text-gray-700 font-paragraph"
-                >Description</label
-              >
-              <textarea
-                name="description"
-                id="description"
-                rows="4"
-                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
-              ></textarea>
-            </div>
-            <div class="flex flex-col mb-6">
-              <label
-                for="mediaUrls"
-                class="font-semibold text-lg text-gray-700 font-paragraph"
-                >Media URLs</label
-              >
-              <div id="mediaInputs">
-                <input
-                  type="text"
-                  name="mediaUrls[]"
-                  class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main mb-2"
-                />
-              </div>
-            </div>
-            <div class="flex flex-col mb-6">
-              <label
-                for="mediaAlt"
-                class="font-semibold text-lg text-gray-700 font-paragraph"
-                >Short Media Description</label
-              >
-              <input
-                type="text"
-                name="mediaAlt"
-                id="mediaAlt"
-                class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
-              />
-            </div>
-            <div class="text-center">
-              <button
-                class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover py-3 px-6 rounded-lg transition duration-200"
-              >
-                Edit Listing
-              </button>
-            </div>
-          </fieldset>
-        </form>
-      </section>
+          </div>
+          <div class="flex flex-col mb-6">
+            <label
+              for="mediaAlt"
+              class="font-semibold text-lg text-gray-700 font-paragraph"
+              >Short Media Description</label
+            >
+            <input
+              type="text"
+              name="mediaAlt"
+              id="mediaAlt"
+              class="p-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-main"
+            />
+          </div>
+          <div class="text-center">
+            <button
+              class="bg-brand-main text-white font-paragraph hover:bg-brand-mainhover py-3 px-6 rounded-lg transition duration-200"
+            >
+              Edit Listing
+            </button>
+          </div>
+        </fieldset>
+      </form>
     </main>
     <footer class="bg-brand-banner py-5 px-10 md:px-20">
       <div class="flex justify-between">

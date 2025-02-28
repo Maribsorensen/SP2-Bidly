@@ -40,7 +40,7 @@ export function createListingElement(listing) {
     listingImageContainer.appendChild(listingImage);
   } else {
     const placeholderImage = document.createElement("img");
-    placeholderImage.setAttribute("src", "path_to_placeholder_image.jpg");
+    placeholderImage.setAttribute("src", "placeholder_image.jpg");
     placeholderImage.setAttribute("alt", "No image available");
     listingImageContainer.appendChild(placeholderImage);
   }
