@@ -1,7 +1,7 @@
 export default async function router(pathname = window.location.href) {
   switch (pathname) {
     case "/":
-      await import(`./views/home.js`);
+      await import("./views/home.js");
       break;
     case "/auth/login/":
       await import("./views/login.js");
