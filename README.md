@@ -27,7 +27,7 @@ This is a front-end application for an auction site where users can create listi
 ## Installation & Setup
 ```sh
 # Clone the repository
-git clone [https://github.com/your-repository.git](https://github.com/Maribsorensen/SP2-Bidly.git)
+git clone https://github.com/Maribsorensen/SP2-Bidly.git
 
 # Navigate to the project folder
 cd SP2-Bidly
