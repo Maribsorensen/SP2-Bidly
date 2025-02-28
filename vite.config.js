@@ -2,7 +2,7 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/SP2-Bidly/",
+  base: "",
   build: {
     target: "esnext",
     rollupOptions: {

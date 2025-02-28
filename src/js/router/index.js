@@ -5,31 +5,31 @@ import { updateNav } from "../global/utils/updateNav.js";
 
 export default async function router(pathname = window.location.href) {
   switch (pathname) {
-    case "/SP2-Bidly/":
+    case "/":
       await import(`./views/home.js`);
       break;
-    case "/SP2-Bidly/auth/login/":
+    case "/auth/login/":
       await import("./views/login.js");
       break;
-    case "/SP2-Bidly/auth/register/":
+    case "/auth/register/":
       await import("./views/register.js");
       break;
-    case "/SP2-Bidly/listing/":
+    case "/listing/":
       await import("./views/listings.js");
       break;
-    case "/SP2-Bidly/listing/singleListing/":
+    case "/listing/singleListing/":
       await import("./views/singleListing.js");
       break;
-    case "/SP2-Bidly/profile/":
+    case "/profile/":
       await import("./views/profile.js");
       break;
-    case "/SP2-Bidly/profile/edit/":
+    case "/profile/edit/":
       await import("./views/editProfile.js");
       break;
-    case "/SP2-Bidly/listing/create/":
+    case "/listing/create/":
       await import("./views/createListing.js");
       break;
-    case "/SP2-Bidly/listing/edit/":
+    case "/listing/edit/":
       await import("./views/editListing.js");
       break;
     default:
