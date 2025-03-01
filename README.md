@@ -46,8 +46,8 @@ This project connects to the Noroff school Auction API.
 [Bidly](https://sp2-bidly.netlify.app/)
 
 ## Prebuilt tailwind
-Toaster: [Tailwindflex](https://tailwindflex.com/@prashant/basic-alert-success-info-warning-error)
-Loading indicator: [Tailwindflex](https://tailwindflex.com/@mohit/spinning-loading)
+- **Toaster**: [Tailwindflex](https://tailwindflex.com/@prashant/basic-alert-success-info-warning-error)
+- **Loading indicator**: [Tailwindflex](https://tailwindflex.com/@mohit/spinning-loading)
 
 ## License
 This project is for educational purposes and follows the guidelines set by Noroff.
