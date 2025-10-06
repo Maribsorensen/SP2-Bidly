@@ -40,7 +40,7 @@ export async function deleteListing(event) {
         showToast({ message: "Listing deleted successfully!", type: "success" });
       } catch (error) {
         // Show an error message if the deletion failed.
-        showToast({ message: "Error deleting listing: " + error.message, type: "error" });
+        showToast({ message: `Error deleting listing: ${error.message}`, type: "error" });
       }
     }
   });

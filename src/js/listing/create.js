@@ -67,8 +67,7 @@ export async function onCreateListing(event) {
 
   try {
     // Send the listing data to the server via an API request
-    const result = await apiRequest(API_AUCTION_LISTINGS, "POST", listingData, true);
-    console.log("Listing created:", result);
+    await apiRequest(API_AUCTION_LISTINGS, "POST", listingData, true);
 
     // Show success message and redirect the user to the profile page after 2 seconds
     showToast({ message: "Listing created successfully!", type: "success" });
@@ -77,6 +76,6 @@ export async function onCreateListing(event) {
     }, 2000);
   } catch (error) {
     // Show error message if the request fails
-    showToast({ message: "Failed to create listing: " + error.message, type: "error" });
+    showToast({ message: `Failed to create listing: ${error.message}`, type: "error" });
   }
 }

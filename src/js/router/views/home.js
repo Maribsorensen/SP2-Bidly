@@ -98,7 +98,7 @@ export async function displayListings() {
     });
   } catch (error) {
     // Show a toast message if there was an error fetching the listings
-    showToast({ message: "Error showing listings: " + error.message, type: "error" });
+    showToast({ message: `Error showing listings: ${error.message}`, type: "error" });
   }
 };
 

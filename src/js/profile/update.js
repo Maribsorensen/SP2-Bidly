@@ -39,7 +39,7 @@ export async function loadProfileData() {
     form.avatarAlt.value = profile.avatar && profile.avatar.alt ? profile.avatar.alt : "";
 
   } catch (error) {
-    showToast({ message: "Error loading profile: " + error.message, type: "error" });
+    showToast({ message: `Error loading profile: ${error.message}`, type: "error" });
   }
 }
 
@@ -76,6 +76,6 @@ export async function onEditProfile(event) {
     showToast({ message: "Profile updated successfully!", type: "success" });
     window.location.href = `/profile/`;
   } catch (error) {
-    showToast({ message: "Failed to update profile: " + error.message, type: "error" });
+    showToast({ message: `Failed to update profile: ${error.message}`, type: "error" });
   }
 }

@@ -47,7 +47,7 @@ export async function onLogin(event) {
     }, 1000);
   } catch (error) {
     // Show an error toaster if login fails
-    showToast({ message: "Login error: " + error.message, type: "error" });
+    showToast({ message: `Login error: ${error.message}`, type: "error" });
   } finally {
     // Re-enable the form and button
     fieldset.disabled = false;

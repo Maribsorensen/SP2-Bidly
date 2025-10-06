@@ -60,7 +60,7 @@ export async function loadListingData() {
     }
 
   } catch (error) {
-    showToast({ message: "Error loading listing: " + error.message, type: "error" });
+    showToast({ message: `Error loading listing: ${error.message}`, type: "error" });
   }
 }
 
@@ -113,6 +113,6 @@ export async function onEditListing(event) {
       window.location.href = `/profile/`; // Redirect to profile page after success
     }, 2000);
   } catch (error) {
-    showToast({ message: "Failed to update listing: " + error.message, type: "error" });
+    showToast({ message: `Failed to update listing: ${error.message}`, type: "error" });
   }
 }

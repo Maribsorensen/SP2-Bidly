@@ -52,7 +52,7 @@ export async function bids() {
     }
 
   } catch (error) {
-    showToast({ message: "Error fetching bids: " + error.message, type: "error" });
+    showToast({ message: `Error fetching bids: ${error.message}`, type: "error" });
   }
 }
 
@@ -130,6 +130,6 @@ export async function handleBidSubmission(event) {
     await bids();
 
   } catch (error) {
-    showToast({ message: "Error placing bid: " + error.message, type: "error" });
+    showToast({ message: `Error placing bid: ${error.message}`, type: "error" });
   }
 }

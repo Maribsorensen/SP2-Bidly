@@ -57,7 +57,7 @@ async function displayUserProfile() {
     profileTotalWins.textContent = `Total wins: ${profile._count?.wins ?? 0}`;
 
   } catch (error) {
-    showToast({ message: "Error fetching profile: " + error.message, type: "error" });
+    showToast({ message: `Error fetching profile: ${error.message}`, type: "error" });
   } finally {
     loadingIndicator.remove();
   }
@@ -86,7 +86,7 @@ async function displayProfileListings() {
       listingContainer.appendChild(listingElement);
     });
   } catch (error) {
-    showToast({ message: "Error displaying listings: " + error.message, type: "error" });
+    showToast({ message: `Error displaying listings: ${error.message}`, type: "error" });
   }
 }
 

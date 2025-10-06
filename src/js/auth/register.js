@@ -34,7 +34,7 @@ export async function onRegister(event) {
 
   try {
     // Attempt to register with provided data
-    const response = await register(data);
+    await register(data);
 
     // Redirect to the login page after a brief delay on successful registration
     setTimeout(() => {
@@ -42,7 +42,7 @@ export async function onRegister(event) {
     }, 1000);
   } catch (error) {
     // Show an error message if registration fails
-    showToast({ message: "Registration error: " + error.message, type: "error" });
+    showToast({ message: `Registration error: ${error.message}`, type: "error" });
   } finally {
     // Re-enable the form and button
     fieldset.disabled = false;

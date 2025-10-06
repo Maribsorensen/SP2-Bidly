@@ -120,7 +120,7 @@ export async function displayListings(category = "", page = 1, append = false) {
       showMoreButton.style.display = "block";
     }
   } catch (error) {
-    showToast({ message: "Error displaying listings: " + error.message, type: "error" });
+    showToast({ message: `Error displaying listings: ${error.message}`, type: "error" });
   } finally {
     if (loadingIndicator) {
       loadingIndicator.remove();
