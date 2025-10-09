@@ -1,6 +1,6 @@
 # Auction Site (Semester Project year 2)
 
-![image]()
+![image](src/assets/bidly.png)
 
 ## Project Overview
 This is a front-end application for an auction site where users can create listings, bid on items, and manage their accounts. The site is built using Vite, Tailwind CSS, HTML, and Vanilla JavaScript. The back-end functionality is managed by the Noroff Auction API.
