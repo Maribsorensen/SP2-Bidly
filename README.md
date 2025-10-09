@@ -1,4 +1,6 @@
-# Auction Site
+# Auction Site (Semester Project year 2)
+
+![image]()
 
 ## Project Overview
 This is a front-end application for an auction site where users can create listings, bid on items, and manage their accounts. The site is built using Vite, Tailwind CSS, HTML, and Vanilla JavaScript. The back-end functionality is managed by the Noroff Auction API.
@@ -51,5 +53,14 @@ This project connects to the Noroff school Auction API.
 
 ## License
 This project is for educational purposes and follows the guidelines set by Noroff.
+
+## Improvements
+
+This project have been improved after teacher feedback with the following:
+
+- **Console.log** - Hidden console.logs have been removed
+- **Let/const** - Usage of let instead of const in the icons file has been adjusted
+- **Variables** - Issue where unused variables where not called has been changed and fixed
+- **Template literals** - Lack of template literals have been changed to the correct calls
 
 
