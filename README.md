@@ -63,4 +63,5 @@ This project have been improved after teacher feedback with the following:
 - **Variables** - Issue where unused variables where not called has been changed and fixed
 - **Template literals** - Lack of template literals have been changed to the correct calls
 
+[Improvements commit](https://github.com/Maribsorensen/SP2-Bidly/commit/557766241d5964b359e26bd90d9374cc822a0823)
 
